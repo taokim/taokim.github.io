@@ -1,0 +1,71 @@
+baseURL = 'https://example.github.io/blogposts/'
+languageCode = 'en-us'
+title = 'Engineering Decisions in the AI Era'
+theme = 'PaperMod'
+
+[params]
+  env = "production"
+  description = "Perspectives from a Distinguished Engineer on technical leadership, architecture decisions, and navigating the AI era"
+  author = "Author"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  defaultTheme = "auto"
+  disableThemeToggle = false
+
+  [params.homeInfoParams]
+    Title = "Engineering Decisions in the AI Era"
+    Content = "Perspectives on technical leadership, architecture, and company-wide engineering decisions"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/your-username"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/your-profile"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "monokai"
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 20
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 30
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 40
