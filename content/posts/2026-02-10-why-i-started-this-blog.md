@@ -1,22 +1,22 @@
 ---
-title: "Why I Started This Blog"
+title: "블로그를 시작하며"
 date: 2026-02-10
 draft: false
-description: "A distinguished engineer's perspective on sharing technical decisions in the AI era"
-tags: ["meta", "AI", "leadership"]
+description: "이 블로그를 시작한 이유"
+tags: ["meta"]
 categories: ["General"]
 ShowToc: false
 ---
 
-As a distinguished engineer, I make decisions that affect the entire engineering organization. In the AI era, these decisions have become both more impactful and more uncertain.
+개발하면서 이것저것 알게 된 것들을 어딘가에 정리해두고 싶었다.
 
-This blog is where I think out loud about:
+회사 위키에 써두기도 하고, 메모앱에 적어두기도 했는데 — 나중에 다시 찾으려면 잘 안 되고, 다른 사람에게 공유하기도 애매했다.
 
-- **Technical strategy** — How to evaluate and adopt new technologies at scale
-- **AI in practice** — Not the hype, but what actually works in production
-- **Engineering leadership** — The hard choices that don't have clean answers
-- **Architecture** — Designing systems that will still make sense in 2 years
+그래서 블로그를 하나 만들었다. 거창한 건 아니고:
 
-I write for senior engineers, architects, and technical leaders who face similar decisions. No clickbait, no "10 tips" listicles — just honest thinking about hard problems.
+- 개발하다 삽질한 기록
+- 유용한 팁이나 설정 가이드
+- 엔지니어링 의사결정에 대한 생각
+- 그 외 공유하면 좋을 것들
 
-Let's figure this out together.
+한국어, 영어 섞어서 쓸 예정이다. 편하게 읽어주시면 좋겠다.

@@ -1,12 +1,12 @@
-baseURL = 'https://example.github.io/blogposts/'
-languageCode = 'en-us'
-title = 'Engineering Decisions in the AI Era'
+baseURL = 'https://taokim.github.io/'
+languageCode = 'ko'
+title = "Tao's Log"
 theme = 'PaperMod'
 
 [params]
   env = "production"
-  description = "Perspectives from a Distinguished Engineer on technical leadership, architecture decisions, and navigating the AI era"
-  author = "Author"
+  description = "개발, 엔지니어링, 그리고 이것저것 — Dev, engineering, and everything in between"
+  author = "Tao Kim"
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
@@ -18,16 +18,16 @@ theme = 'PaperMod'
   disableThemeToggle = false
 
   [params.homeInfoParams]
-    Title = "Engineering Decisions in the AI Era"
-    Content = "Perspectives on technical leadership, architecture, and company-wide engineering decisions"
+    Title = "Tao's Log"
+    Content = "개발, 엔지니어링, 그리고 이것저것"
 
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/your-username"
+    url = "https://github.com/taokim"
 
   [[params.socialIcons]]
-    name = "linkedin"
-    url = "https://linkedin.com/in/your-profile"
+    name = "email"
+    url = "mailto:tao.sbkim@gmail.com"
 
 [markup]
   [markup.highlight]

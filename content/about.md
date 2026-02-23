@@ -5,12 +5,7 @@ ShowToc: false
 ShowBreadCrumbs: false
 ---
 
-Distinguished Engineer writing about technical leadership, architecture decisions, and navigating the AI era at scale.
+소프트웨어 엔지니어 Tao Kim입니다.
 
-Topics I write about:
-- **Technical Strategy** — Making company-wide engineering decisions
-- **AI Integration** — Practical adoption of AI in engineering organizations
-- **Architecture** — System design at scale
-- **Engineering Culture** — Building teams that ship
-
-<!-- Update with your actual bio -->
+개발하면서 알게 된 것들, 엔지니어링 결정, 삽질 기록, 유용한 팁 등을 기록합니다.
+기술적인 이야기부터 사소한 생산성 팁까지 — 누군가에게 도움이 되길 바라며.
