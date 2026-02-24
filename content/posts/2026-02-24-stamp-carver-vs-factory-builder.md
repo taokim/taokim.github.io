@@ -54,9 +54,8 @@ To discuss growth, let me define two perspectives that I think help engineers un
 
 Many engineers aim to become masters of 'Micro Coding,' but at some point, they hit a 'wall' of problems (or salary negotiations) that can't be solved from that perspective alone.
 
-<!-- Image: Engineer's Job Title and Scope diagram -->
-<!-- Entry Level: Task/Feature → Senior: Service → Staff: Product/Domain → Principal: Org/Company -->
-<!-- Macro Scope ↑ on left, Micro Focus ↓ on right -->
+![Engineer's Job Title and Scope](/images/stamp-carver-vs-factory-builder/engineer-scope.png)
+*Engineer's Job Title and Scope (with Gemini)*
 
 ### [Self-Assessment] Do I Have a 'Macro' Perspective?
 
@@ -108,7 +107,8 @@ To draw an analogy between 'Micro' and 'Macro' — it's the difference between a
 
 A few years ago in Japan, an automated robot for stamping 'Hanko' (personal seals) became a hot topic. How should we view this phenomenon?
 
-<!-- Image: Factory assembly line for stamp robots (with Gemini) -->
+![Automated stamp robot factory line](/images/stamp-carver-vs-factory-builder/stamp-robot-factory.png)
+*Automated stamp robot factory line (with Gemini)*
 
 This symbolically shows what can happen when you're **too immersed** in the 'Micro' perspective alone. No matter how exquisitely you hone the 'stamp-carving skill' (Micro), if 'machines' that automate the process appear, an individual's craftsmanship can become meaningless.
 
@@ -118,7 +118,8 @@ Is the true 'Macro' perspective about efficiently making 'stamp-carving robots'?
 
 The 'stamp robot' may be an extreme automation of 'How,' but it's missing the fundamental question of 'Why' — it might be **a sophisticated example of automating the wrong flow.** The 'Macro' perspective means not staying at 'craftsmanship' or 'machines (automation),' but constantly questioning **whether 'the current flow itself' is right** and leading the larger 'industrialization' change.
 
-<!-- Image: Stamp-carving developer vs Factory-building developer (with Gemini) -->
+![The Stamp Carver vs The Factory Builder](/images/stamp-carver-vs-factory-builder/stamp-carver-vs-factory-builder.png)
+*The Stamp Carver vs The Factory Builder (with Gemini)*
 
 ## 5. In Closing: Where Should Your Growth (and Salary) Be Bet?
 
