@@ -1,0 +1,79 @@
+/* Pretendard (Korean) + Inter (English) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --font-sans: 'Inter', 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.entry-hint-parent {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Code blocks */
+code, pre, .highlight {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* Inline code */
+:not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--primary);
+  padding-left: 1em;
+  font-style: normal;
+  opacity: 0.9;
+}
+
+/* Post content line height */
+.post-content {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Post content headings spacing */
+.post-content h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
+}
+
+.post-content h3 {
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+}
+
+/* Smoother list spacing */
+.post-content li {
+  margin-bottom: 0.3em;
+}
+
+/* TOC styling */
+.toc a {
+  font-size: 0.92rem;
+}
+
+/* Home info */
+.first-entry .entry-header h1 {
+  font-size: 1.6rem;
+}
