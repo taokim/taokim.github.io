@@ -16,6 +16,14 @@ theme = 'PaperMod'
   TocOpen = false
   defaultTheme = "auto"
   disableThemeToggle = false
+  comments = true
+
+  [params.giscus]
+    repo = "taokim/taokim.github.io"
+    repoID = "R_kgDORWj-tw"
+    category = "Comments"
+    categoryID = "DIC_kwDORWj-t84C3Fq5"
+    mapping = "pathname"
 
   [params.homeInfoParams]
     Title = "Tao's Log"
