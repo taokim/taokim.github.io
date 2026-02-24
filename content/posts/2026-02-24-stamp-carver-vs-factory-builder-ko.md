@@ -54,8 +54,8 @@ TocOpen: false
 
 많은 엔지니어가 '마이크로 코딩'의 달인이 되는 것을 목표로 하지만, 어느 순간 그 관점만으로는 해결할 수 없는 문제(혹은 연봉 테이블)의 '벽'을 만나게 됩니다.
 
-<!-- Image: Engineer's Job Title and Scope (with Gemini) -->
-<!-- Entry Level: Task/Feature → Senior: Service → Staff: Product/Domain → Principal: Org/Company -->
+![Engineer's Job Title and Scope](/images/stamp-carver-vs-factory-builder/engineer-scope.png)
+*Engineer's Job Title and Scope (with Gemini)*
 
 ### [자가 진단] 나는 '매크로' 관점을 가지고 있을까?
 
@@ -107,7 +107,8 @@ TocOpen: false
 
 몇년전 일본에서 '도장(Hanko)'을 찍어주는 자동화 로봇이 도입되어 화제가 되었습니다. 이 현상을 어떻게 바라봐야 할까요?
 
-<!-- Image: 도장 로봇을 기반으로 상상해본 공정 라인 (with Gemini) -->
+![도장 로봇을 기반으로 상상해본 공정 라인](/images/stamp-carver-vs-factory-builder/stamp-robot-factory.png)
+*도장 로봇을 기반으로 상상해본 공정 라인 (with Gemini)*
 
 이는 '마이크로' 관점에만 **너무 매몰되었을 때** 발생할 수 있는 현상을 상징적으로 보여줍니다. 아무리 정교하게 '도장 찍는 기술(마이크로)'을 연마해도, 그 프로세스 자체를 자동화하는 '기계'가 등장하면 개인의 장인 정신은 무의미해질 수 있습니다.
 
@@ -117,7 +118,8 @@ TocOpen: false
 
 '도장 로봇'은 어쩌면 '어떻게(How)'를 극단적으로 자동화했지만, '왜(Why)'라는 근본적인 질문이 빠진, **'잘못된 흐름'을 고도화한 예시**일 수 있습니다. '매크로'한 관점은 이처럼 '장인 정신'이나 '기계(자동화)'에 머무르는 것이 아니라, **'현재의 흐름 자체'가 올바른지** 끊임없이 의심하고 더 큰 '산업화'의 변화를 읽고 주도하는 것을 의미합니다.
 
-<!-- Image: 도장 파는 개발자 vs 공장 짓는 개발자 (with Gemini) -->
+![도장 파는 개발자 vs 공장 짓는 개발자](/images/stamp-carver-vs-factory-builder/stamp-carver-vs-factory-builder.png)
+*도장 파는 개발자 vs 공장 짓는 개발자 (with Gemini)*
 
 ## 5. 글을 마치며: 당신의 성장(연봉)은 어디에 베팅되어야 할까요?
 
