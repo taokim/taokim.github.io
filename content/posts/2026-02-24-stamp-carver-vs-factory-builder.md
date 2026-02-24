@@ -13,6 +13,10 @@ TocOpen: false
 >
 > This post was originally published on the [MUSINSA Tech Blog](https://techblog.musinsa.com/%EB%8F%84%EC%9E%A5-%ED%8C%8C%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-vs-%EA%B3%B5%EC%9E%A5-%EC%A7%93%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-b33dddf5daef) in Korean. This is the English adaptation.
 
+**A note from 2026:** I originally wrote this before the current wave of AI swept through our industry. Since then, the landscape has shifted even further than I described. The progression from 'How' to 'Why' that I argued for? AI has pushed it one step beyond — to **'What.'** As implementation costs plummet with AI-assisted coding, the 'Micro' (How) is being commoditized faster than anyone expected. The 'Macro' perspective — asking 'Why' and especially 'What should we build?' — has become not just valuable but essential. The core thesis of this post is more relevant than ever, perhaps even understated. That's why I'm resharing it here.
+
+---
+
 **Subtitle: A Senior IC's story of breaking through the 'wall' with 'Macro Coding'**
 
 Hi, I'm Tao Kim. I work at MUSINSA as a Distinguished Engineer and company-wide tech lead.
