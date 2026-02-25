@@ -39,18 +39,20 @@ Follow the blog's bilingual posting convention from CLAUDE.md:
 - **Long posts**: Separate `.md` and `.ko.md` files with cross-links
 - Use the existing front matter patterns (tags, categories, ShowToc, etc.)
 - Maintain the blog's personal, approachable tone
+- **ALWAYS set `draft: true`** in front matter. Polish creates drafts only — publishing is a separate step via `/publish`.
 
 ### Step 4: Update the idea status
 
 After the post draft is created:
 - Update the idea file's `status` to `polished`
 - Add a `polished_to` field with the post path
+- Do NOT set `draft: false` — that is `/publish`'s job
 
 ### Step 5: Report
 
 Tell the user:
-- What files were created
-- Suggested next steps (review, edit, publish)
+- What files were created (as `draft: true`)
+- Suggested next steps: review the draft, then `/publish` when ready
 
 ## Rules
 
@@ -59,3 +61,4 @@ Tell the user:
 - Do NOT machine-translate — adapt content naturally for each language
 - Technical terms can stay in English in the Korean version
 - Code blocks are shared across languages
+- **NEVER publish** — always `draft: true`. Use `/publish` to go live.
