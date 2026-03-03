@@ -1,3 +1,9 @@
-<div class="mermaid">
-  {{- .Inner | safeHTML }}
-</div>
+{{- $title := .Get "title" | default "" -}}
+<figure style="margin: 2em 0;">
+  {{- if $title }}
+  <figcaption style="text-align:center; font-weight:600; margin-bottom:0.75em; font-size:0.95em;">{{ $title }}</figcaption>
+  {{- end }}
+  <div class="mermaid">
+    {{- .Inner | safeHTML }}
+  </div>
+</figure>

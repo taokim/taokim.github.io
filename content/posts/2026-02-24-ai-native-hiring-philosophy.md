@@ -103,7 +103,7 @@ This might sound like a minor design detail, but it's actually the crux of every
 
 **The sweet spot** sits between these extremes: **vague requirements with a clear outcome expectation.** The candidate must derive *what* to build. The AI can execute but can't decide what to execute.
 
-{{< mermaid >}}
+{{< mermaid title="The Vagueness Spectrum" >}}
 graph LR
     A["❌ Full Vagueness<br/><i>'Build something useful'</i><br/><br/>Too open — no signal"]
     B["✅ Sweet Spot<br/><i>Vague requirements +<br/>clear outcome</i><br/><br/>Candidate derives WHAT to build"]
@@ -129,7 +129,7 @@ There's a paradox in designing tests for the AI era, and it took us a while to r
 
 Every step toward testability pushes you toward specificity. And every step toward specificity makes the AI's job easier and the candidate's thinking shallower.
 
-{{< mermaid >}}
+{{< mermaid title="The Testability–Vagueness Paradox" >}}
 graph TD
     A["1. Algorithm tests are dead<br/>Short problem = 1 minute today"] -->|So...| B["2. Ask for a full service<br/>Complex enough to require thinking"]
     B -->|But...| C["3. Full services are hard to test<br/>Need automated testing at scale"]
@@ -233,7 +233,7 @@ But that's only half the problem.
 
 Consider what happens when the *same student* sends two concurrent registration requests — maybe they double-clicked, maybe they had two browser tabs. Two requests arrive simultaneously for different courses. Both check: "Is this student under 18 credits?" Both see 15 credits. Both pass. Both enroll. The student now has 21 credits. The credit limit is violated.
 
-{{< mermaid >}}
+{{< mermaid title="The Dual-Lock Problem: Why Course-Level Locking Isn't Enough" >}}
 sequenceDiagram
     actor S as Student (15 credits)
     participant R1 as Request 1<br/>Course A (3cr)
@@ -266,7 +266,7 @@ The candidates who got here are the engineers we want — whether they reasoned 
 
 All of this philosophy is meaningless without a way to measure it. We built a 3-tier evaluation model — and the structure isn't arbitrary. Each tier asks a progressively deeper question.
 
-{{< mermaid >}}
+{{< mermaid title="3-Tier Evaluation Model" >}}
 graph BT
     T1["<b>Tier 1 — Make it Work</b><br/>Build · Start · Health check<br/><i>Can you ship a running service?</i>"]
     T2["<b>Tier 2 — Basic Features</b><br/>APIs · Business rules · Concurrency<br/><i>Does it work correctly under load?</i>"]
