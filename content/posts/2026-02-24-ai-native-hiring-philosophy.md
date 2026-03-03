@@ -53,7 +53,7 @@ We decided not to sit out this chaotic era. Instead, we asked ourselves: what if
 
 This isn't recklessness. It's a calculated position: the companies that figure out AI-native hiring first will attract the best of this generation. Everyone else will be playing catch-up.
 
-There's a line I keep coming back to: *you don't learn from the excitement behind a company's logo when you walk through the door — you learn from the people you work with day to day.* That's what we're optimizing for. Not brand prestige. Not headcount. The right people, working alongside each other, growing together — in a moment when what "the right people" means is being redefined.
+As Andrew Ng put it: *"We don't learn from the excitement of the company logo when you walk through the door — you learn from the people you deal with day-to-day."* That's what we're optimizing for. Not brand prestige. Not headcount. The right people, working alongside each other, growing together — in a moment when what "the right people" means is being redefined.
 
 We chose to find our position at the frontline and move forward as pioneers. We didn't wait for the industry to converge on a standard. We built our own.
 
