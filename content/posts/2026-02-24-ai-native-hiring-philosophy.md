@@ -57,7 +57,7 @@ As Andrew Ng put it: *"We don't learn from the excitement of the company logo wh
 
 We chose to find our position at the frontline and move forward as pioneers. We didn't wait for the industry to converge on a standard. We built our own.
 
-What follows is the philosophy behind that decision — and the reasoning that shaped every aspect of our evaluation, from problem design to scoring to interviews.
+The first thing we threw out was the traditional coding test. Designing its replacement forced us to confront four questions: Why don't existing tests work anymore? How do we level the playing field when AI tools are the key variable? How vague should the problem be? And how do we keep submissions testable without giving away the answer?
 
 ## LeetCode Is Dead
 
@@ -67,7 +67,7 @@ An AI agent can solve a typical LeetCode medium in seconds. It can handle most h
 
 This shift is bigger than just coding tests. Andrew Ng pointed out in a Stanford CS class how dramatically the balance between building and deciding has shifted:
 
-{{< youtube AuZoDsNmG_s >}}
+{{< youtube-link id="AuZoDsNmG_s" title="Andrew Ng — What AI Means for Computer Science (Stanford CS)" >}}
 
 The engineer-to-PM ratio used to be 7:1 or 8:1 — one person writing a spec could keep seven or eight engineers busy building it. With AI making implementation dramatically cheaper and faster, that ratio is collapsing to 2:1, even 1:1. Product management — understanding users, defining requirements, making judgment calls — hasn't sped up the same way. The bottleneck has moved. And Ng goes further: he's seeing the roles merge entirely. The fastest-moving people in Silicon Valley right now are product-minded engineers who talk to users directly, decide what to build, and direct AI to build it. One person, both roles.
 
@@ -103,6 +103,15 @@ This might sound like a minor design detail, but it's actually the crux of every
 
 **The sweet spot** sits between these extremes: **vague requirements with a clear outcome expectation.** The candidate must derive *what* to build. The AI can execute but can't decide what to execute.
 
+{{< mermaid >}}
+graph LR
+    A["❌ Full Vagueness<br/><i>'Build something useful'</i><br/><br/>Too open — no signal"]
+    B["✅ Sweet Spot<br/><i>Vague requirements +<br/>clear outcome</i><br/><br/>Candidate derives WHAT to build"]
+    C["❌ Half Vagueness<br/><i>'POST /users, GET /users/{id}'</i><br/><br/>Too specific — AI fills gaps"]
+
+    A -.- B -.- C
+{{< /mermaid >}}
+
 The principle: write the problem the way a real stakeholder would — casually, with gaps, with unstated assumptions. Don't specify how to handle edge cases. Don't define NFRs. Don't list API endpoints. Just describe what the system should *do*, leave the rest to the candidate, and explicitly tell them: "anything not specified is yours to decide."
 
 The ambiguity IS the test.
@@ -119,6 +128,20 @@ There's a paradox in designing tests for the AI era, and it took us a while to r
 4. **So ask candidates to dockerize?** But requiring Docker is a huge implementation hint. Same for specifying API endpoints, database schemas, or any test infrastructure. Every hint you give is a hint the AI can use to skip the thinking.
 
 Every step toward testability pushes you toward specificity. And every step toward specificity makes the AI's job easier and the candidate's thinking shallower.
+
+{{< mermaid >}}
+graph TD
+    A["1. Algorithm tests are dead<br/>Short problem = 1 minute today"] -->|So...| B["2. Ask for a full service<br/>Complex enough to require thinking"]
+    B -->|But...| C["3. Full services are hard to test<br/>Need automated testing at scale"]
+    C -->|So...| D["4. Specify test infrastructure<br/>Docker, endpoints, schemas..."]
+    D -->|But...| E["Every hint makes AI's job easier<br/>Candidate's thinking gets shallower"]
+    E -.->|Back to square one| A
+
+    OS["💡 Open Source<br/>Candidates document like OSS<br/>AI agent reads docs and tests"]
+    OS ==>|Breaks the cycle| C
+
+    style OS fill:#16a34a,stroke:#333,color:#fff
+{{< /mermaid >}}
 
 **The resolution came from an unexpected place: open source.**
 
@@ -210,6 +233,23 @@ But that's only half the problem.
 
 Consider what happens when the *same student* sends two concurrent registration requests — maybe they double-clicked, maybe they had two browser tabs. Two requests arrive simultaneously for different courses. Both check: "Is this student under 18 credits?" Both see 15 credits. Both pass. Both enroll. The student now has 21 credits. The credit limit is violated.
 
+{{< mermaid >}}
+sequenceDiagram
+    actor S as Student (15 credits)
+    participant R1 as Request 1<br/>Course A (3cr)
+    participant DB as Database
+    participant R2 as Request 2<br/>Course B (3cr)
+
+    S->>R1: Register
+    S->>R2: Register (concurrent)
+    Note over R1,R2: Course-level lock only — no student-level lock
+    R1->>DB: SELECT credits → 15
+    R2->>DB: SELECT credits → 15
+    R1->>DB: 15 + 3 = 18 ≤ 18 ✓ ENROLL
+    R2->>DB: 15 + 3 = 18 ≤ 18 ✓ ENROLL
+    Note over DB: Result: 21 credits — limit violated
+{{< /mermaid >}}
+
 The same pattern breaks time conflict detection and duplicate enrollment checks.
 
 **Course-level serialization** protects the capacity invariant — the shared resource across all students.
@@ -225,6 +265,22 @@ The candidates who got here are the engineers we want — whether they reasoned 
 ## From Philosophy to Practice
 
 All of this philosophy is meaningless without a way to measure it. We built a 3-tier evaluation model — and the structure isn't arbitrary. Each tier asks a progressively deeper question.
+
+{{< mermaid >}}
+graph BT
+    T1["<b>Tier 1 — Make it Work</b><br/>Build · Start · Health check<br/><i>Can you ship a running service?</i>"]
+    T2["<b>Tier 2 — Basic Features</b><br/>APIs · Business rules · Concurrency<br/><i>Does it work correctly under load?</i>"]
+    T3["<b>Tier 3 — Deep Thought</b><br/>Prompts · Design docs · Git history · Code quality<br/><i>Do you understand what you shipped?</i>"]
+
+    T1 --> T2 --> T3
+
+    DT["🦆 Duck Typing<br/>External behavior is the test"]
+    BDT["🔍 Beyond Duck Typing<br/>Internal understanding reveals growth"]
+
+    T1 ~~~ DT
+    T2 ~~~ DT
+    T3 ~~~ BDT
+{{< /mermaid >}}
 
 **Tier 1 — Make it Work.** Does the application build? Does it start? Does the health check respond? If you can't ship a running service, nothing else matters.
 
@@ -245,6 +301,8 @@ Two candidates can both implement dual-lock correctly. Duck typing says they're 
 High functional scores with shallow depth signals AI over-dependency — ships fast but can't explain why. A failed build with exceptional design thinking tells a different story — someone worth interviewing despite the technical stumble. We're not just finding who got to the right answer. We're finding who understood the question.
 
 This is how philosophy becomes practice. In the next post, I'll walk through the actual machine we built — the automated pipeline that evaluates 360+ candidates with AI judging AI-assisted code.
+
+One preview, though — because the results didn't match our intuition. We designed the scoring to weight depth of thinking above functional completeness. We expected the quality layer to be the decisive differentiator. When we actually met the candidates in offline interviews, the candidates who focused on making things work — ranked as "Craftsman" rather than "Ace" because their quality scores were lower — received stronger recommendations from interviewers. We're still thinking about what that means. More in the next posts.
 
 ---
 

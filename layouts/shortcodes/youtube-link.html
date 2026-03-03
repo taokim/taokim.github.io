@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $title := .Get "title" | default "" -}}
+<figure style="max-width:720px; margin:1.5em auto;">
+  <a href="https://www.youtube.com/watch?v={{ $id }}" target="_blank" rel="noopener" style="display:block; position:relative;">
+    <img src="https://img.youtube.com/vi/{{ $id }}/hqdefault.jpg" alt="{{ $title }}" style="width:100%; border-radius:8px; display:block;" />
+    <span style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:68px; height:48px; background:rgba(255,0,0,0.85); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+    </span>
+  </a>
+  {{- if $title }}
+  <figcaption style="text-align:center; margin-top:0.5em; font-size:0.9em; color:var(--secondary);">
+    ▶ <a href="https://www.youtube.com/watch?v={{ $id }}" target="_blank" rel="noopener">{{ $title }}</a>
+  </figcaption>
+  {{- end }}
+</figure>
