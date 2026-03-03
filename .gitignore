@@ -15,3 +15,7 @@ Thumbs.db
 
 # Hugo temp
 hugo_stats.json
+
+# Internal & draft content
+ideas/
+internal/
