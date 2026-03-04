@@ -25,7 +25,7 @@ So I made this blog. It serves two purposes:
 3. **Polish** — turn it into a bilingual draft (`draft: true`), with a style guide (`CLAUDE.md`) enforcing tone, structure, and natural Korean (not translation-sounding)
 4. **Publish** — final review, flip the flag, push
 
-Each step is a custom slash command backed by the repo's own conventions. The AI follows the rules because they're codified in the project — not because I ask nicely each time. The whole thing lives in [this repo](https://github.com/taokim/taokim.github.io) if you're curious.
+Each step is a custom slash command backed by the repo's own conventions. The AI follows the rules because they're codified in the project — not because I ask nicely each time. The whole thing lives in [this repo](https://github.com/taokim/taokim.github.io) if you're curious. (The `ideas/` folder is `.gitignore`'d — some of those raw dumps are too embarrassing to share.)
 
 I'll write in both English and Korean. Let's see where this goes.
 
@@ -33,13 +33,13 @@ I'll write in both English and Korean. Let's see where this goes.
 
 예전부터 뭔가 글로 정리해두고 싶었다.
 
-몇 년간 일하고, 사이드 프로젝트 하고, 이것저것 삽질하면서 쌓인 경험이 있는데, 제대로 적어두지 않으면 결국 잊어버리게 된다.
+몇 년간 일하고, 사이드 프로젝트 하고, 이것저것 부딪히면서 쌓인 경험이 있는데, 제대로 적어두지 않으면 결국 잊어버리게 된다.
 
 그래서 블로그를 만들었다. 목적은 두 가지다.
 
 **엔지니어링 의사결정과 전략적 사고를 공유하는 것.** 규모 있는 시스템을 다루다 보면 기술 선택, 아키텍처 트레이드오프, 마이그레이션 전략 같은 결정을 자주 하게 된다. 글로 정리하면 생각이 명확해지고, 비슷한 고민을 하는 사람들에게도 도움이 되지 않을까 한다.
 
-**실용적이고 일상적인 지식을 공유하는 것.** 모든 글이 깊은 아키텍처 에세이일 필요는 없다. 때로는 5분짜리 가이드가 누군가의 1시간 삽질을 줄여주기도 한다.
+**실용적이고 일상적인 지식을 공유하는 것.** 모든 글이 깊은 아키텍처 에세이일 필요는 없다. 때로는 5분짜리 가이드가 누군가의 1시간을 아껴주기도 한다.
 
 **AI로 글쓰기 — 가능하지만, "그냥 써달라고 하면 되는" 건 아니다.** 이 블로그는 [Claude Code](https://docs.anthropic.com/en/docs/claude-code)를 활용해서 쓰고 있다. 다만 LLM에 프롬프트 한 번 던져서 바로 발행하는 방식은 아니다. 쓸 만한 글이 나오려면 나름의 파이프라인이 필요하다.
 
@@ -48,6 +48,6 @@ I'll write in both English and Korean. Let's see where this goes.
 3. **Polish** — 영/한 초안으로 작성 (`draft: true`). 스타일 가이드(`CLAUDE.md`)가 톤, 구조, 번역투 방지까지 관리
 4. **Publish** — 최종 검토 후 발행
 
-각 단계는 이 레포의 컨벤션에 맞춰 만든 커스텀 슬래시 커맨드로 동작한다. AI가 규칙을 따르는 건 매번 부탁해서가 아니라, 프로젝트에 규칙이 코드화되어 있기 때문이다. 궁금하면 [레포](https://github.com/taokim/taokim.github.io)를 직접 보면 된다.
+각 단계는 이 레포의 컨벤션에 맞춰 만든 커스텀 슬래시 커맨드로 동작한다. AI가 규칙을 따르는 건 매번 부탁해서가 아니라, 프로젝트에 규칙이 코드화되어 있기 때문이다. 궁금하면 [레포](https://github.com/taokim/taokim.github.io)를 직접 보면 된다. (`ideas/` 폴더는 `.gitignore` 처리해뒀다 — 날것의 덤프는 좀 부끄러워서.)
 
 영어와 한국어 섞어서 쓸 예정이다. 어디까지 갈지 한번 보자.
