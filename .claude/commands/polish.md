@@ -14,6 +14,10 @@ Convert a raw idea from `ideas/` into a blog post draft in `content/posts/`.
 - The word `list` — to show all ideas sorted by priority, with status
 - The word `ready` — to show only ideas with status `ready`
 
+### Flags
+
+- `--internal` — Polish into an internal document (`internal/`) instead of a blog post. See **Internal Mode** below.
+
 ## Process for polishing
 
 ### Step 1: Load the idea
@@ -54,11 +58,36 @@ Tell the user:
 - What files were created (as `draft: true`)
 - Suggested next steps: review the draft, then `/publish` when ready
 
+## Internal Mode (`--internal`)
+
+When `--internal` is passed, the output is an internal document — not a blog post.
+
+### Differences from blog mode
+
+| Aspect | Blog (default) | Internal (`--internal`) |
+|--------|----------------|------------------------|
+| Output path | `content/posts/` | `internal/` |
+| Format | Hugo front matter, `draft: true` | Plain markdown, no front matter |
+| Bilingual | Yes (per CLAUDE.md conventions) | No — write in the language that fits the audience (usually Korean for internal) |
+| Tone | Personal blog voice | Professional but warm — speaking to colleagues or new hires |
+| Cross-links | EN/KO cross-links | Not applicable |
+
+### Internal process
+
+Steps 1–2 are identical (load idea, discuss approach). Then:
+
+**Step 3 (Internal):** Write the document as plain markdown in `internal/YYYY-MM-DD-slug.md`. No Hugo front matter. Structure and tone should match the audience (e.g., a welcome letter reads differently from an architecture doc).
+
+**Step 4 (Internal):** Update the idea file's `status` to `polished` and add `polished_to` pointing to the `internal/` path.
+
+**Auto-detection hint:** If the idea has the `internal` tag, suggest `--internal` mode to the user before proceeding.
+
 ## Rules
 
 - Always discuss structure with the user before writing the full post
-- Respect the blog's tone: personal, approachable, not grandiose
+- Respect the blog's tone: personal, approachable, not grandiose (blog mode)
+- Respect a professional, warm tone for internal documents (internal mode)
 - Do NOT machine-translate — adapt content naturally for each language
 - Technical terms can stay in English in the Korean version
 - Code blocks are shared across languages
-- **NEVER publish** — always `draft: true`. Use `/publish` to go live.
+- **NEVER publish** — always `draft: true` (blog) or unfinalized (internal). Use `/publish` to ship.
