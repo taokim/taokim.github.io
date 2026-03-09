@@ -10,10 +10,14 @@ ShowToc: true
 TocOpen: false
 ---
 
-> 🇰🇷 [한국어 버전 읽기](/posts/2026-02-24-ai-native-hiring-philosophy-ko/)
+> 🇰🇷 [한국어 버전 읽기](/posts/2026-02-24-ai-native-hiring-philosophy.ko/)
 >
 > This is Part 1 of a 3-part series on AI-native hiring.
 > **Part 2**: "The Machine" (coming soon) | **Part 3**: "The Human" (coming soon)
+
+![AI Rookie #1 — AI Native Engineering Track](/images/musinsa-rookies/ai-rookie-1-banner.png)
+
+In January 2026, we ran an AI-native engineering hiring round at Musinsa — hundreds of candidates, evaluated end-to-end by an automated AI pipeline. We defined the problem, built the automated evaluation pipeline, and shaped the philosophy behind it all. This series is about what we learned.
 
 ---
 
@@ -33,17 +37,17 @@ That question led to everything in this series.
 
 ## The Fear and the Freeze
 
-The AI wave hasn't just changed how engineers work. It's thrown the entire talent equation into chaos.
+The AI wave hasn't just changed how engineers work. It's upended how companies think about junior hiring.
 
-Companies aren't just struggling with *how to evaluate* candidates — they're struggling with more fundamental questions. Do we even need to hire? How many engineers does an AI-augmented team actually need? Should we bring in fresh juniors who'll need years of mentoring, when AI might reshape the job before they're ramped up? Or do we double down on experienced seniors and hope they adapt?
+The questions go beyond evaluation methods. How many engineers does an AI-augmented team actually need? Should we bring in fresh juniors who'll need years of mentoring, when AI might reshape the job before they're ramped up? Or do we double down on experienced seniors and hope they adapt?
 
-The responses range from denial to paralysis:
+When it comes to entry-level hiring, the responses range from denial to paralysis:
 
 - **Ban it**: "No AI tools allowed during the coding test." (You're testing who can code without their actual tools — like testing a carpenter without power tools.)
 - **Ignore it**: Run the same LeetCode-style interviews and pretend nothing changed. (Candidates solve your algorithm problems in 60 seconds with an agent. You just don't see it.)
-- **Freeze**: Stop hiring entirely until "things stabilize." (Things won't stabilize. The wave only accelerates.)
+- **Freeze**: Stop hiring juniors until "things stabilize." (Entry-level hiring at major tech companies has dropped by more than half since 2022. In Korean IT, new grad postings fell 67% year-over-year.)
 
-The freeze response is the most common — and the most damaging. It's not really about evaluation difficulty. It's about uncertainty: nobody knows what the right team looks like anymore. And in that uncertainty, the default is to do nothing. Meanwhile, an entire generation of talent — the best AI-native engineers — is being undervalued or ignored because the industry can't decide what it needs.
+The freeze is the most visible response — and the most damaging. It's not really about evaluation difficulty. It's about uncertainty: nobody knows what a junior engineer's role looks like when AI can handle much of what juniors used to do. And in that uncertainty, the default is to not hire them at all. Meanwhile, a generation of new graduates — including the best AI-native engineers — enters the market to find fewer doors open than any cohort before them.
 
 ## Pioneer, Not Bystander
 
@@ -55,7 +59,7 @@ This isn't recklessness. It's a calculated position: the companies that figure o
 
 As Andrew Ng put it: *"We don't learn from the excitement of the company logo when you walk through the door — you learn from the people you deal with day-to-day."* That's what we're optimizing for. Not brand prestige. Not headcount. The right people, working alongside each other, growing together — in a moment when what "the right people" means is being redefined.
 
-We chose to find our position at the frontline and move forward as pioneers. We didn't wait for the industry to converge on a standard. We built our own.
+We moved first. We didn't wait for the industry to converge on a standard. We built our own.
 
 The first thing we threw out was the traditional coding test. Designing its replacement forced us to confront four questions: Why don't existing tests work anymore? How do we level the playing field when AI tools are the key variable? How vague should the problem be? And how do we keep submissions testable without giving away the answer?
 
@@ -63,7 +67,7 @@ The first thing we threw out was the traditional coding test. Designing its repl
 
 Let me say it plainly: **a short algorithm problem in C or C++ is a 1-minute problem today.**
 
-An AI agent can solve a typical LeetCode medium in seconds. It can handle most hards with a single prompt. The thing that coding tests were designed to measure — the ability to translate a problem into working code — has been commoditized overnight.
+An AI agent can solve a typical LeetCode medium in seconds. It can handle many hards with a single prompt. The thing that coding tests were designed to measure — the ability to translate a problem into working code — has been commoditized overnight.
 
 This shift is bigger than just coding tests. Andrew Ng pointed out in a Stanford CS class how dramatically the balance between building and deciding has shifted:
 
@@ -85,11 +89,11 @@ We initially considered letting candidates use their own local environments. The
 
 But once "AI tools" became the key variable, the freedom-vs-fairness equation broke down.
 
-In a 2-3 hour test, the difference between someone with a well-configured AI agent (Claude Pro, optimized IDE integration, custom prompts) and someone without is enormous. It's not a difference in *skill* — it's a difference in *capital*. We'd be testing who has access to better tools, not who thinks more deeply about problems.
+In a 2-3 hour test, the difference between someone with a well-configured AI agent (ChatGPT Pro, Claude Max, optimized IDE integration, custom prompts) and someone without is enormous. It's not a difference in *skill* — it's a difference in *capital*. We'd be testing who has access to better tools, not who thinks more deeply about problems.
 
 We wanted to test problem-solving thinking, not purchasing power.
 
-The decision: provide all candidates with an equal AI environment. Level the playing field on *tools*, then test what actually matters — the thinking.
+The decision: provide all candidates with an equal AI environment. We partnered with OpenAI, who provided free agent access with sufficient tokens for every candidate. Level the playing field on *tools*, then test what actually matters — the thinking.
 
 ## The Vagueness Spectrum
 
@@ -183,7 +187,7 @@ But here's the thing — our candidates have *lived* this problem. They've fough
 
 The real question is: from that one sentence, how far can you go? How do you expand a lived frustration into a structured system design? How do you define what "the right system" even means when the people asking for it don't fully know themselves? There's a reason scientists and mathematicians start from *definitions* — because the act of defining is where the real thinking happens.
 
-This used to be the domain of senior ICs — the ability to take an ambiguous mandate and turn it into a clear technical direction. With AI as a thinking partner, that boundary is dissolving. A junior engineer who knows how to explore a problem space with their agent — asking the right questions, stress-testing assumptions, surfacing edge cases — can now do work that used to require a team. Every engineer can operate like a senior IC. The ones who actually *do* are the ones we're looking for.
+This used to be the domain of senior ICs — the ability to take an ambiguous mandate and turn it into a clear technical direction. With AI as a thinking partner, that boundary is dissolving. A junior engineer who knows how to explore a problem space with their agent — asking the right questions, stress-testing assumptions, surfacing edge cases — can now do work that used to require a team. Any engineer can operate like a senior IC. The ones who actually *do* are the ones we're looking for.
 
 Every design principle from the previous sections converges in this problem. The vagueness is calibrated: you know *what* to build (a registration system), but you must derive *how*. The outcome expectation is clear (100 concurrent requests, 1 winner), but the mechanism is yours to choose. The problem reads like a real product team memo — because that's what you'll be reading on day one of the job.
 
@@ -225,7 +229,7 @@ Could a sharper AI or a better prompt surface these insights for the candidate? 
 
 ### The Dual-Lock Insight
 
-This is the deepest divergence point, and very few candidates discovered it on their own.
+This is the deepest divergence point. Fewer than one in five candidates showed clear evidence of implementing both locking scopes — and of those, only about half left traces of recognizing the problem themselves in their prompts or design documents, rather than having their AI agent silently handle it. (There's also the possibility that the agent solved it before the candidate ever encountered the problem — removing the opportunity to think about it at all.)
 
 Most candidates think about concurrency purely in terms of **course-level locking** — protecting the capacity invariant. If 100 people rush for 1 seat, only 1 should succeed. Lock the course row. Done.
 
@@ -264,7 +268,7 @@ The candidates who got here are the engineers we want — whether they reasoned 
 
 ## From Philosophy to Practice
 
-All of this philosophy is meaningless without a way to measure it. We built a 3-tier evaluation model — and the structure isn't arbitrary. Each tier asks a progressively deeper question.
+All of this philosophy is meaningless without a way to measure it. We built a 3-tier evaluation model — and the structure isn't arbitrary. Each tier asks a progressively deeper question. As we'll see in Parts 2 and 3, the signals a machine could actually read from submitted artifacts turned out to be more nuanced than we expected — but the framework itself held.
 
 {{< mermaid title="3-Tier Evaluation Model" >}}
 graph BT
@@ -300,9 +304,7 @@ Two candidates can both implement dual-lock correctly. Duck typing says they're 
 
 High functional scores with shallow depth signals AI over-dependency — ships fast but can't explain why. A failed build with exceptional design thinking tells a different story — someone worth interviewing despite the technical stumble. We're not just finding who got to the right answer. We're finding who understood the question.
 
-This is how philosophy becomes practice. In the next post, I'll walk through the actual machine we built — the automated pipeline that evaluates 360+ candidates with AI judging AI-assisted code.
-
-One preview, though — because the results didn't match our intuition. We designed the scoring to weight depth of thinking above functional completeness. We expected the quality layer to be the decisive differentiator. When we actually met the candidates in offline interviews, the candidates who focused on making things work — ranked as "Craftsman" rather than "Ace" because their quality scores were lower — received stronger recommendations from interviewers. We're still thinking about what that means. More in the next posts.
+This is how philosophy becomes practice. In the next post, I'll walk through the actual machine we built — the automated pipeline that evaluates about 400 candidates with AI judging AI-assisted code. And the findings that forced us to rethink where automated evaluation ends and human judgment begins.
 
 ---
 
