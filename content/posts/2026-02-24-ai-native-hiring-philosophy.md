@@ -29,7 +29,7 @@ The internet era gave us "digital natives" — a generation that never knew life
 
 These aren't people who *learned* to use AI. They grew up with it. ChatGPT was there when they started college. Copilot was in their first IDE. Claude helped them debug their first production bug. AI isn't a tool they adopted — it's the air they breathe when they code.
 
-I heard about companies in Japan that now teach new hires how to use a physical keyboard, because the incoming generation grew up on smartphones. The instinct of most organizations is to "fix" this — to train the new generation back to the old way. But the better instinct is to ask: *what are they naturally good at that we aren't?*
+I heard about companies in Japan that now teach new hires how to use a physical keyboard, because the incoming generation grew up on smartphones. In that case, the "fix it" instinct somewhat made sense — smartphones never replaced desktops for serious work. But AI is different. It doesn't fall short of existing tools — it surpasses them. The better instinct is to ask: *what are they naturally good at that we aren't?*
 
 The same applies to AI. Instead of asking "how do we prevent candidates from using AI?", we should ask: **"how do we find the ones who are genuinely great at working with AI?"**
 
@@ -95,6 +95,8 @@ We wanted to test problem-solving thinking, not purchasing power.
 
 The decision: provide all candidates with an equal AI environment. We partnered with OpenAI, who provided free agent access with sufficient tokens for every candidate. Level the playing field on *tools*, then test what actually matters — the thinking.
 
+> Shout-out to the OpenAI team — their support made a fair evaluation environment possible.
+
 ## The Vagueness Spectrum
 
 Here's the hardest problem in designing an AI-era coding test: **how vague should the problem be?**
@@ -116,7 +118,7 @@ graph LR
     A -.- B -.- C
 {{< /mermaid >}}
 
-The principle: write the problem the way a real stakeholder would — casually, with gaps, with unstated assumptions. Don't specify how to handle edge cases. Don't define NFRs. Don't list API endpoints. Just describe what the system should *do*, leave the rest to the candidate, and explicitly tell them: "anything not specified is yours to decide."
+The hypothesis: if you write the problem the way a real stakeholder would — with gaps and unstated assumptions — candidates who think deeply will naturally differentiate themselves. So we didn't specify how to handle edge cases. Didn't define NFRs. Didn't list API endpoints. Just described what the system should *do*, left the rest to the candidate, and told them: "anything not specified is yours to decide."
 
 The ambiguity IS the test.
 
