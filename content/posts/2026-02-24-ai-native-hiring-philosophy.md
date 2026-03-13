@@ -1,7 +1,7 @@
 ---
 title: "The Philosophy: AI-Native Hiring"
 date: 2026-02-24
-draft: true
+draft: false
 description: "LeetCode is dead. In the AI era, implementation is cheap — knowing what to implement is the real skill. Here's how we designed a hiring process to find AI-native engineers."
 tags: ["ai", "hiring", "engineering-culture", "problem-design"]
 categories: ["Engineering"]
@@ -12,8 +12,8 @@ TocOpen: false
 
 > 🇰🇷 [한국어 버전 읽기](/posts/2026-02-24-ai-native-hiring-philosophy.ko/)
 >
-> This is Part 1 of a 3-part series on AI-native hiring.
-> **Part 2**: "The Machine" (coming soon) | **Part 3**: "The Human" (coming soon)
+> This is Part 1 of the AI-native hiring series.
+> **Part 2-1**: ["The Machine"](/posts/2026-02-24-ai-native-hiring-machine/) | **Part 2-2**: ["Under the Hood"](/posts/2026-02-24-ai-native-hiring-under-the-hood/) | **Part 3**: "The Human" (coming soon)
 
 ![AI Rookie #1 — AI Native Engineering Track](/images/musinsa-rookies/ai-rookie-1-banner.png)
 
@@ -111,11 +111,13 @@ This might sound like a minor design detail, but it's actually the crux of every
 
 {{< mermaid title="The Vagueness Spectrum" >}}
 graph LR
-    A["❌ Full Vagueness<br/><i>'Build something useful'</i><br/><br/>Too open — no signal"]
-    B["✅ Sweet Spot<br/><i>Vague requirements +<br/>clear outcome</i><br/><br/>Candidate derives WHAT to build"]
-    C["❌ Half Vagueness<br/><i>'POST /users, GET /users/{id}'</i><br/><br/>Too specific — AI fills gaps"]
+    A["Full Vagueness<br/><i>'Build something useful'</i><br/><br/>Too open — no signal"]
+    B["Sweet Spot<br/><i>Vague requirements +<br/>clear outcome</i><br/><br/>Candidate derives WHAT to build"]
+    C["Half Vagueness<br/><i>'POST /users, GET /users/{id}'</i><br/><br/>Too specific — AI fills gaps"]
 
     A -.- B -.- C
+
+    style B fill:#16a34a,stroke:#333,color:#fff
 {{< /mermaid >}}
 
 The hypothesis: if you write the problem the way a real stakeholder would — with gaps and unstated assumptions — candidates who think deeply will naturally differentiate themselves. So we didn't specify how to handle edge cases. Didn't define NFRs. Didn't list API endpoints. Just described what the system should *do*, left the rest to the candidate, and told them: "anything not specified is yours to decide."
@@ -143,7 +145,7 @@ graph TD
     D -->|But...| E["Every hint makes AI's job easier<br/>Candidate's thinking gets shallower"]
     E -.->|Back to square one| A
 
-    OS["💡 Open Source<br/>Candidates document like OSS<br/>AI agent reads docs and tests"]
+    OS["Open Source<br/>Candidates document like OSS<br/>AI agent reads docs and tests"]
     OS ==>|Breaks the cycle| C
 
     style OS fill:#16a34a,stroke:#333,color:#fff
@@ -225,7 +227,7 @@ We said "handle 100 concurrent requests" but never specified *how*. No mention o
 
 No level is "wrong." A candidate who chooses `synchronized` and clearly explains why — single-instance scope, simplicity for the stated constraints, documented trade-offs — scores better than one who throws in Redis without understanding why.
 
-The *reasoning* matters more than the *mechanism*. That's the whole point.
+The *reasoning* matters more than the *mechanism*. It's not which lock you picked — it's why you picked it.
 
 Could a sharper AI or a better prompt surface these insights for the candidate? Of course. And that's fine — duck typing applies here. If it walks like deep thinking and quacks like deep thinking, it's deep thinking. The skill isn't arriving at the insight unaided. It's arriving at the insight, period — whether through your own reasoning or through a well-directed conversation with your agent.
 
@@ -262,11 +264,11 @@ The same pattern breaks time conflict detection and duplicate enrollment checks.
 
 **Student-level serialization** protects per-student constraints — credit limits, time conflicts, duplicate enrollment.
 
-You need both.
+You need both. And once you need both, a new problem appears: lock *ordering*. If one code path acquires the student lock first and another acquires the course lock first, you get deadlock. The deeper the concurrency thinking, the more traps open up.
 
 The mechanism can differ — pessimistic lock, optimistic lock with retry, application-level lock, distributed lock, serializable isolation. But the *requirement* is the same: concurrent requests from the same student must be serialized to prevent invariant violations.
 
-The candidates who got here are the engineers we want — whether they reasoned it out themselves or through a well-directed conversation with their agent. But *arriving* is only half the story. The other half is *how* they got there, and what they understood along the way. That's what our evaluation model is designed to reveal.
+The candidates who got here are the engineers we want — whether they reasoned it out themselves or through a well-directed conversation with their agent. And among them, some went further: not just solving the problem but documenting *why* it needed to be solved this way, building the kind of understanding that transfers to the next problem they'll face. Our evaluation model is designed to surface exactly that difference.
 
 ## From Philosophy to Practice
 
@@ -280,12 +282,15 @@ graph BT
 
     T1 --> T2 --> T3
 
-    DT["🦆 Duck Typing<br/>External behavior is the test"]
-    BDT["🔍 Beyond Duck Typing<br/>Internal understanding reveals growth"]
+    DT["Duck Typing<br/>External behavior is the test"]
+    BDT["Beyond Duck Typing<br/>Internal understanding reveals growth"]
 
     T1 ~~~ DT
     T2 ~~~ DT
     T3 ~~~ BDT
+
+    style DT fill:#2563eb,stroke:#333,color:#fff
+    style BDT fill:#16a34a,stroke:#333,color:#fff
 {{< /mermaid >}}
 
 **Tier 1 — Make it Work.** Does the application build? Does it start? Does the health check respond? If you can't ship a running service, nothing else matters.
@@ -300,13 +305,13 @@ Tier 3 is where we distinguish *delegation* from *engagement* — and this disti
 
 Anthropic's recent research on AI-assisted coding (*"How AI assistance impacts the formation of coding skills,"* Shen & Tamkin, 2026) draws a sharp line between these two modes. Engineers who delegate to AI are faster on any single task. But engineers who engage with understanding — who use AI as a collaborator to learn and verify, not just to produce — build skills that compound over time. Anthropic's own internal data shows their top performers achieve 1.2–2x throughput gains precisely because they treat AI as a thinking partner, not a replacement for thought.
 
-That's the bet behind our scoring: **depth of thinking outweighs functional completeness.** Tiers 1 and 2 answer "can you ship?" Tier 3 answers "do you understand what you shipped — and can you grow from here?"
+That's the bet behind our scoring: **depth of thinking outweighs functional completeness.** Tier 1 answers "can you build and run it?" Tier 2 answers "does it work as intended?" Tier 3 answers "do you understand what you shipped — and can you grow from here?"
 
-Two candidates can both implement dual-lock correctly. Duck typing says they're equivalent — the behavior is the same. But look beyond the interface: one explored the problem through progressively deeper prompts, documented why each serialization scope exists, and left evidence of genuine understanding in their git history. The other landed on it through a generic prompt and moved on. Same output. Very different internals.
+Here's a concrete example. Two candidates both implement dual-lock correctly. Duck typing says they're equivalent — the behavior is the same. But look beyond the interface: one explored the problem through progressively deeper prompts, documented why each serialization scope exists, and left evidence of genuine understanding in their git history. The other landed on it through a generic prompt and moved on. Same output. Very different internals.
 
 High functional scores with shallow depth signals AI over-dependency — ships fast but can't explain why. A failed build with exceptional design thinking tells a different story — someone worth interviewing despite the technical stumble. We're not just finding who got to the right answer. We're finding who understood the question.
 
-This is how philosophy becomes practice. In the next post, I'll walk through the actual machine we built — the automated pipeline that evaluates about 400 candidates with AI judging AI-assisted code. And the findings that forced us to rethink where automated evaluation ends and human judgment begins.
+This is how philosophy becomes practice. In the next post, I'll walk through the actual machine we built — the automated pipeline that evaluates about 400 candidates with AI judging AI-assisted code. And the limits of automated evaluation we ran into — and why human judgment turned out to be necessary.
 
 ---
 
