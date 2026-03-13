@@ -5,7 +5,7 @@
 - **Framework**: Hugo + PaperMod theme
 - **Hosting**: GitHub Pages (GitHub Actions deploy)
 - **Author**: Tao Kim (tao.sbkim@gmail.com)
-- **Blog URL**: https://taokim.github.io
+- **Blog URL**: https://taokim.dev
 
 ## Blog Tone
 - Balanced: technical articles + casual tips/guides
