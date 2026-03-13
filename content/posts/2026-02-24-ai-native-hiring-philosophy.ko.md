@@ -1,6 +1,6 @@
 ---
 title: "The Philosophy: AI 네이티브 채용"
-date: 2026-02-24
+date: 2026-03-13
 draft: false
 description: "LeetCode는 죽었다. AI 시대에 구현은 싸다. 무엇을 구현할지 아는 것이 진짜 실력이다. AI 네이티브 엔지니어를 찾기 위해 설계한 채용 철학."
 tags: ["ai", "hiring", "engineering-culture", "problem-design"]

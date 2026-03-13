@@ -1,6 +1,6 @@
 ---
 title: "The Philosophy: AI-Native Hiring"
-date: 2026-02-24
+date: 2026-03-13
 draft: false
 description: "LeetCode is dead. In the AI era, implementation is cheap — knowing what to implement is the real skill. Here's how we designed a hiring process to find AI-native engineers."
 tags: ["ai", "hiring", "engineering-culture", "problem-design"]
