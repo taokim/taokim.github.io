@@ -66,6 +66,18 @@ When bilingual text must appear together (site title, post title, etc.): English
 - When a programming concept (e.g., duck typing) is used as a metaphor: EN can extend playfully; KO references the concept name but describes the idea in natural Korean
 - When the metaphor has conceptual limits, acknowledge the boundary rather than stretching it
 
+## Import Workflow
+
+Blog posts originating outside this repo (e.g., from tk-vault ideas, colleague drafts, Medium cross-posts) come in through `/import-post`. It handles front matter, image paths, bilingual adaptation, and parallel EN/KO review via the `blog-reviewer-en` and `blog-reviewer-ko` personas in `.claude/agents/`. See `.claude/commands/import-post.md`.
+
+Once imported, posts live in `content/posts/` like any other. `draft: true` until manually flipped.
+
+## Image Convention
+
+- Files live under `static/images/<slug>/<filename>`.
+- Markdown references them as `/images/<slug>/<filename>` (Hugo serves `static/` at site root).
+- Use the post slug as the directory name so images stay scoped per post.
+
 ## Commit Convention
 - Commit whenever a logical group of changes is finalized
 - Use descriptive commit messages (not "fix" or "update")
