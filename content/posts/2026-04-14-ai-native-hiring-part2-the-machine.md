@@ -14,6 +14,8 @@ TocOpen: false
 
 This is Part 2 of a three-part series on AI-native hiring. Part 1: [Philosophy, Rubric, and the 3-Tier Model](/posts/2026-02-24-ai-native-hiring-philosophy/) · Part 3: [The Human — Judgment Beyond the Score](/posts/2026-04-14-ai-native-hiring-part3-the-human/)
 
+Written by [Myunghoon Lee](https://medium.com/@mh.lee_16701) (Musinsa Core Engineering). Edited by Tao Kim.
+
 In Part 1, I laid out the philosophy. Ambiguity is the test. We're not looking for people who arrived at the right answer — we're looking for people who understood the question. I also introduced the 3-Tier model: **Make it Work**, **Basic Features**, **Deep Thought**.
 
 Putting that philosophy into practice meant actually reading, building, testing, scoring, and ranking 400+ submissions. At two hours per candidate, that's 800 hours — five months of full-time work for one person.

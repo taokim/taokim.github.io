@@ -14,6 +14,8 @@ TocOpen: false
 
 AI 네이티브 채용 시리즈 3부작 중 Part 2입니다. Part 1: [철학, 루브릭, 3-Tier 평가 모델](/posts/2026-02-24-ai-native-hiring-philosophy.ko/) · Part 3: [사람을 보는 30분 — 점수 너머의 판단](/posts/2026-04-14-ai-native-hiring-part3-the-human.ko/)
 
+[이명훈](https://medium.com/@mh.lee_16701)(무신사 Core Engineering) 작성, Tao Kim 편집.
+
 Part 1에서 철학을 이야기했습니다. 모호함이 곧 테스트이고, 정답에 도달한 사람이 아니라 질문을 이해한 사람을 찾는다는 것. 3-Tier 평가 모델도 소개했습니다. **Make it Work**, **Basic Features**, **Deep Thought**.
 
 그 철학을 실행에 옮기려면, 400여 명의 코드를 실제로 읽고, 빌드하고, 테스트하고, 점수를 매기고, 등급을 분류해야 합니다. 한 명에 2시간이면 800시간. 한 사람이 주 40시간 일해도 5개월입니다.
