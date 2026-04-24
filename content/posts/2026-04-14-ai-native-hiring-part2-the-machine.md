@@ -24,7 +24,7 @@ Putting that philosophy into practice meant actually reading, building, testing,
 
 The problem was a university course registration system. On the surface, a CRUD app. But one line made it bite: *"Even if 100 people simultaneously apply for a course with 1 seat remaining, exactly 1 must succeed."* The assignment presumed candidates would use an AI coding agent — and we evaluated not just the code but the collaboration itself.
 
-> Shout-out to the OpenAI team and Codex — thanks for the tokens that put every candidate on equal footing.
+> Shout-out to the OpenAI team and Codex — thanks for the tokens. Equal footing for every candidate.
 
 ![Assignment overview](/images/ai-native-hiring-part2-the-machine/01-assignment-overview.png)
 
@@ -48,9 +48,9 @@ Here's everything one evaluation needs to do:
 
 Repeat that 400 times.
 
-At first glance, only step 4 needs AI. The opposite is true. Step 4 *obviously* needs AI — the real requirement is that the other six run autonomously under AI control.
+At first glance, only step 4 needs AI. That's backwards. Step 4 *obviously* needs AI — the real requirement is that the other six run autonomously under AI control.
 
-The first instinct was "let's just build it." Write the evaluation pipeline from scratch in Python or TypeScript. But the team was small, and the hiring timeline wasn't waiting. Git clone, security scanning, Docker builds, API testing, score calculation, external system integration — writing and verifying all of that from the ground up is a project unto itself.
+The first instinct was "let's just build it." Write the evaluation pipeline from scratch in Python or TypeScript. But the team was small, and the hiring timeline wasn't going to wait. Git clone, security scanning, Docker builds, API testing, score calculation, external system integration — writing and verifying all of that from the ground up is a project unto itself.
 
 A terminal-based AI agent is already a general-purpose executor. Sure, it reads and judges code — but it also runs shell commands, manipulates the filesystem, and controls Docker. Coding assistants like Cursor or GitHub Copilot can read code but can't autonomously build Docker images, manage ports, run shell scripts, or call external APIs. We didn't need a coding assistant. We needed a general-purpose agent.
 
@@ -62,7 +62,7 @@ Instead of writing code, we'd tell an agent that can already do all of this *wha
 
 "Evaluate this code for me." That works. The AI evaluates, returns the result. Next candidate? Start over. Every time, the standard drifts a little, the output format shifts a little, the depth wobbles. That's fine for one candidate. For 400, it's unworkable.
 
-So does turning the prompt into a written playbook solve it? Halfway. The biggest shift from ad-hoc LLM usage is **reproducibility**. Same instruction file, same criteria across all 400. Outputs are constrained by JSON Schema, persisted to files and the database.
+Does a written playbook fix it? Halfway. The biggest shift from ad-hoc LLM usage is **reproducibility**. Same instruction file, same criteria across all 400. Outputs are constrained by JSON Schema, persisted to files and the database.
 
 But a more serious problem remains: **the multi-agent architecture**. What happens when one agent scores all 400 submissions in sequence? Context contamination. The 50th scoring pass still carries the residue of candidate 49. Humans make that mistake too. So do AIs. The fix is to spawn an independent agent per candidate, each working in a clean context.
 
@@ -94,7 +94,7 @@ sequenceDiagram
     N-->>N: Final result
 ```
 
-**Init Stage** clones the registered repo and checks out the last commit before the deadline, freezing that snapshot of the code. Because commit timestamps can be forged, the deadline check also verifies the actual GitHub push time (the server timestamp). No push before the deadline, no submission.
+**Init Stage** clones the registered repo and checks out the last commit before the deadline, freezing that snapshot of the code. Commit timestamps are forgeable, so the deadline check uses GitHub's server-side push timestamp. No push before the deadline, no submission.
 
 **Security Gate** is the security scan. OS command execution, network calls, hardcoded secrets. First line of defense for the evaluation environment — fail here and you're out.
 
@@ -116,7 +116,7 @@ The key is that each step does two things at once: it writes a local result JSON
 
 This pipeline is implemented in Markdown.
 
-Building a program in Markdown? Not a metaphor. Literal. "How do we build Docker, what order do the test cases run in, how do we compute the score" — all of it defined in Markdown files. The AI agent reads those documents and executes them. The Markdown *is* the program.
+Building a program in Markdown? Not a metaphor. Literally. "How do we build Docker, what order do the test cases run in, how do we compute the score" — all of it defined in Markdown files. The AI agent reads those documents and executes them. The Markdown *is* the program.
 
 Each step's playbook is independent. Rerun just the Quality Gate. Recompute just the Scoring Stage. If the logic changes, edit the playbook, git push, done. No compilation. No deployment.
 
@@ -377,7 +377,7 @@ Why not just run everyone in parallel? The constraint is safety, not performance
 
 The most telling number: commits that *build the system* (feature work, bug fixes, refactoring) were 14.5%. Commits that *work the system* (evaluation runs, result persistence) were 59.5%. Building took 1 unit of effort. Running took 4.
 
-Five machines ran evaluations in parallel. We rotated through 10 agent accounts, swapping when token usage got close to the ceiling. Three people produced 1,952 commits in 36 days. The machine from Chapter 1 was just the start.
+Five machines ran evaluations in parallel. We rotated through 10 agent accounts, swapping when token usage got close to the ceiling. The machine from Chapter 1 was just the start.
 
 ---
 
@@ -395,9 +395,9 @@ That's the machine's final output. What happened when that guide landed in an in
 
 There were far more commits working the system than building it. Running took four times the effort of building. First get it running, run internal tests to find problems, build up state management, do a full overhaul, go into production mode.
 
-In hindsight, this whole thing was designing and calibrating a harness. The agent's capabilities were already there. What we did was define the direction those capabilities pointed, watch the results, correct the direction, and run again. 17 scoring-model changes, 26 resets. The footprint of tightening a harness, running it, tightening it again.
+In hindsight, this whole thing was designing and calibrating a harness. The agent's capabilities were already there. What we did was define the direction those capabilities pointed, watch the results, correct the direction, and run again. Tighten the harness, run it, tighten it again.
 
-The funny part: the process itself mirrors the virtues the system evaluates. Make it Work → Basic Features → Deep Thought. Get it running, get the basics right, then add depth. The process of building the system and the code the system evaluates turned out to walk the same path.
+The funny part: the process itself mirrors the virtues the system evaluates. Make it Work → Basic Features → Deep Thought. Get it running, get the basics right, then add depth. Turns out the system we built and the code it evaluated were walking the same path.
 
 In Part 1, I said we're not just looking for people who arrived at the right answer — we're looking for people who understood the question.
 
