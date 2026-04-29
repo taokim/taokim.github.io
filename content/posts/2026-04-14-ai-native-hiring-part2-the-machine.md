@@ -16,7 +16,7 @@ This is Part 2 of a three-part series on AI-native hiring. Part 1: [Philosophy, 
 
 Written by [Myunghoon Lee](https://medium.com/@mh.lee_16701) (Musinsa Core Engineering). Edited by Tao Kim.
 
-In Part 1, I laid out the philosophy. Ambiguity is the test. We're not looking for people who arrived at the right answer — we're looking for people who understood the question. I also introduced the 3-Tier model: **Make it Work**, **Basic Features**, **Deep Thought**.
+In Part 1, we laid out the philosophy. Ambiguity is the test. We're not looking for people who arrived at the right answer — we're looking for people who understood the question. Part 1 also introduced the 3-Tier model: **Make it Work**, **Basic Features**, **Deep Thought**.
 
 Putting that philosophy into practice meant actually reading, building, testing, scoring, and ranking 400+ submissions. At two hours per candidate, that's 800 hours — five months of full-time work for one person.
 
@@ -399,7 +399,7 @@ In hindsight, this whole thing was designing and calibrating a harness. The agen
 
 The funny part: the process itself mirrors the virtues the system evaluates. Make it Work → Basic Features → Deep Thought. Get it running, get the basics right, then add depth. Turns out the system we built and the code it evaluated were walking the same path.
 
-In Part 1, I said we're not just looking for people who arrived at the right answer — we're looking for people who understood the question.
+In Part 1, we said we weren't just looking for people who arrived at the right answer — we were looking for people who understood the question.
 
 Building and running this machine, we had the same experience. There are things the score doesn't say. Signals the AI can't read. Depth that doesn't convert into points. However tightly you tune the harness, there are moments that demand human judgment. When we actually met candidates sorted by this rank system in interviews, patterns showed up that we hadn't anticipated.
 
