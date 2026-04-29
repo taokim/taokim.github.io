@@ -407,4 +407,4 @@ We aren't hiring AIs directly, after all. Not yet.
 
 ---
 
-*Part 2 of a three-part series on AI-native hiring. Next: "The Human — Judgment Beyond the Score."*
+*Part 2 of a three-part series on AI-native hiring. Next: [The Human — Judgment Beyond the Score](/posts/2026-04-14-ai-native-hiring-part3-the-human/).*

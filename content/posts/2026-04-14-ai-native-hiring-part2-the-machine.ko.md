@@ -409,4 +409,4 @@ Part 1에서 "정답에 도달한 사람만 찾는 게 아니라, 질문을 이�
 
 ---
 
-*AI 네이티브 채용 시리즈 3부작 중 Part 2. 다음: "The Human: 점수 너머의 판단".*
+*AI 네이티브 채용 시리즈 3부작 중 Part 2. 다음: [The Human: 점수 너머의 판단](/posts/2026-04-14-ai-native-hiring-part3-the-human.ko/).*

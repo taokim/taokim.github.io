@@ -233,4 +233,4 @@ This has been a long series. Thank you for reading to the end. I hope it's been 
 
 ---
 
-*AI-native hiring series, Part 3 of 3. Part 1: "The Philosophy" | Part 2: "The Machine" | Part 3: "The Human".*
+*AI-native hiring series, Part 3 of 3. Part 1: [The Philosophy](/posts/2026-02-24-ai-native-hiring-philosophy/) | Part 2: [The Machine](/posts/2026-04-14-ai-native-hiring-part2-the-machine/) | Part 3: The Human.*

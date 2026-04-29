@@ -235,4 +235,4 @@ Part 1에서 "정답에 도달한 사람이 아니라 질문을 이해한 사람
 
 ---
 
-*AI 네이티브 채용 시리즈 3부작. Part 1: "The Philosophy" | Part 2: "The Machine" | Part 3: "The Human".*
+*AI 네이티브 채용 시리즈 3부작. Part 1: [The Philosophy](/posts/2026-02-24-ai-native-hiring-philosophy.ko/) | Part 2: [The Machine](/posts/2026-04-14-ai-native-hiring-part2-the-machine.ko/) | Part 3: The Human.*
