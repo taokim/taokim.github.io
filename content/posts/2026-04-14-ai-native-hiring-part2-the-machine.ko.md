@@ -1,7 +1,7 @@
 ---
 title: "The Machine: AI가 AI 활용 코드를 평가하다"
 date: 2026-04-14
-draft: true
+draft: false
 description: "400여 명의 AI 네이티브 채용 과제를 평가하는 멀티 에이전트 머신을 만들고, 돌리고, 고도화한 이야기."
 tags: ["AI Native Hiring", "Multi-Agent", "Hiring", "Engineering"]
 categories: ["Engineering"]
@@ -15,6 +15,8 @@ TocOpen: false
 AI 네이티브 채용 시리즈 3부작 중 Part 2입니다. Part 1: [철학, 루브릭, 3-Tier 평가 모델](/posts/2026-02-24-ai-native-hiring-philosophy.ko/) · Part 3: [사람을 보는 30분 — 점수 너머의 판단](/posts/2026-04-14-ai-native-hiring-part3-the-human.ko/)
 
 [이명훈](https://medium.com/@mh.lee_16701)(무신사 Core Engineering) 작성, Tao Kim 편집.
+
+> 📌 [무신사 테크블로그 원문](https://techblog.musinsa.com/the-machine-ai%EA%B0%80-ai-%ED%99%9C%EC%9A%A9-%EC%BD%94%EB%93%9C%EB%A5%BC-%ED%8F%89%EA%B0%80%ED%95%98%EB%8B%A4-c2345aab5b7a)
 
 Part 1에서 철학을 이야기했습니다. 모호함이 곧 테스트이고, 정답에 도달한 사람이 아니라 질문을 이해한 사람을 찾는다는 것. 3-Tier 평가 모델도 소개했습니다. **Make it Work**, **Basic Features**, **Deep Thought**.
 

@@ -1,7 +1,7 @@
 ---
 title: "The Human: Judgment Beyond the Score"
 date: 2026-04-14
-draft: true
+draft: false
 description: "After the machine sorted 400+ candidates, humans ran five days of interviews. What the score couldn't tell us."
 tags: ["AI Native Hiring", "Interview", "Hiring", "Engineering"]
 categories: ["Engineering"]

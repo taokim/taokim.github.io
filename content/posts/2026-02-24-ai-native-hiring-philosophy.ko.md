@@ -11,9 +11,10 @@ TocOpen: false
 ---
 
 > 🇺🇸 [Read in English](/posts/2026-02-24-ai-native-hiring-philosophy/)
->
-> AI 네이티브 채용 시리즈 Part 1입니다.
-> **Part 2-1**: ["The Machine"](/posts/2026-02-24-ai-native-hiring-machine.ko/) | **Part 2-2**: ["Under the Hood"](/posts/2026-02-24-ai-native-hiring-under-the-hood.ko/) | **Part 3**: "The Human" (준비 중)
+
+AI 네이티브 채용 시리즈 3부작 중 Part 1입니다. Part 2: [The Machine — AI가 AI 활용 코드를 평가하다](/posts/2026-04-14-ai-native-hiring-part2-the-machine.ko/) · Part 3: [The Human — 점수 너머의 판단](/posts/2026-04-14-ai-native-hiring-part3-the-human.ko/)
+
+> 📌 [무신사 테크블로그 원문](https://techblog.musinsa.com/the-philosophy-ai-native-hiring-c002c2775b3a)
 
 ![AI Rookie #1 — AI Native Engineering Track](/images/musinsa-rookies/ai-rookie-1-banner.png)
 

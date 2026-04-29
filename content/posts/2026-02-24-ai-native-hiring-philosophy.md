@@ -11,9 +11,8 @@ TocOpen: false
 ---
 
 > 🇰🇷 [한국어 버전 읽기](/posts/2026-02-24-ai-native-hiring-philosophy.ko/)
->
-> This is Part 1 of the AI-native hiring series.
-> **Part 2-1**: ["The Machine"](/posts/2026-02-24-ai-native-hiring-machine/) | **Part 2-2**: ["Under the Hood"](/posts/2026-02-24-ai-native-hiring-under-the-hood/) | **Part 3**: "The Human" (coming soon)
+
+This is Part 1 of a three-part series on AI-native hiring. Part 2: [The Machine — AI Evaluating AI-Assisted Code](/posts/2026-04-14-ai-native-hiring-part2-the-machine/) · Part 3: [The Human — Judgment Beyond the Score](/posts/2026-04-14-ai-native-hiring-part3-the-human/)
 
 ![AI Rookie #1 — AI Native Engineering Track](/images/musinsa-rookies/ai-rookie-1-banner.png)
 

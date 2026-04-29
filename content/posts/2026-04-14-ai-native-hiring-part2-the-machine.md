@@ -1,7 +1,7 @@
 ---
 title: "The Machine: AI Evaluating AI-Assisted Code"
 date: 2026-04-14
-draft: true
+draft: false
 description: "Building, running, and hardening the multi-agent machine that evaluated 400+ AI-native hiring submissions."
 tags: ["AI Native Hiring", "Multi-Agent", "Hiring", "Engineering"]
 categories: ["Engineering"]

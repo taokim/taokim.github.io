@@ -1,7 +1,7 @@
 ---
 title: "The Human: 점수 너머의 판단"
 date: 2026-04-14
-draft: true
+draft: false
 description: "머신이 400명을 분류한 다음, 사람이 마주한 5일간의 면접. 점수가 말해주지 못한 것들에 대하여."
 tags: ["AI Native Hiring", "Interview", "Hiring", "Engineering"]
 categories: ["Engineering"]
@@ -13,6 +13,8 @@ TocOpen: false
 > 🇺🇸 [Read in English](/posts/2026-04-14-ai-native-hiring-part3-the-human/)
 
 AI 네이티브 채용 시리즈 3부작 중 Part 3입니다. Part 1: [철학, 루브릭, 3-Tier 평가 모델](/posts/2026-02-24-ai-native-hiring-philosophy.ko/) · Part 2: [The Machine — AI가 AI 활용 코드를 평가하다](/posts/2026-04-14-ai-native-hiring-part2-the-machine.ko/)
+
+> 📌 [무신사 테크블로그 원문](https://techblog.musinsa.com/the-human-%EC%A0%90%EC%88%98-%EB%84%88%EB%A8%B8%EC%9D%98-%ED%8C%90%EB%8B%A8-bccc190c9c93)
 
 Part 2의 머신이 400여 명을 분류하고, 각자에게 맞춤 면접 가이드까지 준비해뒀습니다. 이제 그 가이드를 손에 쥔 20명 이상의 면접관이, 5일 동안 100명 넘는 후보자와 마주 앉습니다.
 
