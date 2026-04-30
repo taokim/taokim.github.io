@@ -318,4 +318,4 @@ Anthropic의 최근 연구(*"How AI assistance impacts the formation of coding s
 ---
 
 *AI 네이티브 채용 시리즈 3부작 중 Part 1.*
-*다음: **"The Machine: AI가 AI 활용 코드를 평가하다"**. 자동화된 평가 파이프라인의 기술적 심층 분석.*
+*다음: **[The Machine: AI가 AI 활용 코드를 평가하다](/posts/2026-04-14-ai-native-hiring-part2-the-machine.ko/)**. 자동화된 평가 파이프라인의 기술적 심층 분석.*

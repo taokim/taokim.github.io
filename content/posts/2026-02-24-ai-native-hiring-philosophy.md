@@ -315,4 +315,4 @@ This is how philosophy becomes practice. In the next post, I'll walk through the
 ---
 
 *This is Part 1 of a 3-part series.*
-*Next: **"The Machine: AI Evaluating AI-Assisted Code"** — the technical deep-dive into our automated evaluation pipeline.*
+*Next: **[The Machine: AI Evaluating AI-Assisted Code](/posts/2026-04-14-ai-native-hiring-part2-the-machine/)** — the technical deep-dive into our automated evaluation pipeline.*
