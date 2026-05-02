@@ -16,7 +16,7 @@ This is Part 3 of the AI-native hiring series. Part 1: [Philosophy, Rubric, and 
 
 The machine from Part 2 sorted more than 400 candidates and handed each one a personalized interview guide. Now 20+ interviewers pick up those guides and spend five days across the table from more than 100 candidates.
 
-You can't see what a score is missing until you're across the table from someone. This post is about what humans confirmed beyond it, what we missed, and the questions we're still holding.
+You can't see what a score is missing until you're across the table from someone. This post is about what the humans confirmed, what we missed, and the questions we haven't answered yet.
 
 ---
 
@@ -30,9 +30,9 @@ That's a reasonable stance for functional verification. If the enrollment API re
 
 The problem: looking at code alone, you can't tell *whose* thinking produced it.
 
-Distributed tracing. DDD patterns. Multi-layer caching. All of that showed up in 3-hour submissions. Not from one outlier — from many. That's the ceiling. Not of the candidates — of the AI agents they were using. And that's what makes this hard: did the candidate understand what they built, or did they submit what the AI built?
+Distributed tracing. DDD patterns. Multi-layer caching. All of that showed up in 3-hour submissions. Not from one outlier. From many. That's the ceiling. Not of the candidates — of the AI agents they were using. And that's what makes this hard: did the candidate understand what they built, or did they submit what the AI built?
 
-This is exactly why the Quality Gate evaluates prompts and agent instructions, and demands code evidence. But even the Depth score is an *inference* — we're reading thinking-shaped traces in code and docs. We're not watching the thinking itself.
+This is exactly why the Quality Gate evaluates prompts and agent instructions, and demands code evidence. But even the Depth score is an inference. We're reading thinking-shaped traces in code and docs. We're not watching the thinking itself.
 
 ## One Shot Isn't a Signal
 
@@ -42,7 +42,7 @@ The Hustler rank from Part 2 puts this tension under a spotlight. Perfect functi
 
 The score alone can't tell you.
 
-What the score couldn't confirm, the interview had to. The score worked as a filter. But to separate *human thinking* from *machine output*, we needed human eyes.
+What the score couldn't confirm, the interview had to. It worked as a filter. Separating a candidate's thinking from the AI's output still needed a human in the room.
 
 ![Same result, different origin](/images/ai-native-hiring-part3-the-human/02-same-result-different-origin.png)
 
@@ -52,7 +52,7 @@ What the score couldn't confirm, the interview had to. The score worked as a fil
 
 ## Questions Grounded in the Candidate's Own Code
 
-The machine's final artifact is the interview guide. AI reads the candidate's code and writes custom questions that start *from that code*.
+The machine's final artifact is the interview guide. AI reads the candidate's code and generates questions that start directly from that code.
 
 For example:
 
@@ -85,7 +85,7 @@ These candidates know where their own code breaks down. *"What if you deployed t
 
 > *"You laid out six validation steps in this order for enrollment. Why is the time-conflict check last? If conflicts are more frequent than capacity rejections, wouldn't reordering be more efficient?"*
 
-Perfect functionality but no coherent account of their own design decisions? That's an AI-overdependence signal.
+Perfect functionality but no coherent account of their own design decisions? That's a red flag for AI over-reliance.
 
 **Thinker** (low Base + high Depth). Shipped a broken build but thinks sharply.
 
@@ -105,7 +105,7 @@ Every interviewer came in holding the AI-generated guide: questions pulled from 
 
 ## Patterns We Didn't Expect
 
-When the results came in, the prediction was wrong in an interesting direction. Some candidates with high Functional Gate scores — service running, tests passing, concurrency holding — showed deeper understanding in the interview than their Quality Gate score suggested.
+When the results came in, the pattern surprised us. Some candidates with high Functional Gate scores — service running, tests passing, concurrency holding — showed deeper understanding in the interview than their Quality Gate score suggested.
 
 Zoom out and yes, Quality Gate scores correlated better with interview performance overall. But the *individual cases* were the interesting part. Candidates who focused on making things work seemed to have been *forced* into deeper understanding by the act of making them work. When the target is concrete — *"this API must correctly serve 100 concurrent requests"* — hitting it tends to demand real comprehension.
 
@@ -135,7 +135,7 @@ Ask the interviewers whether the guide was a good tool, and most said yes. They 
 
 But a doubt crept in.
 
-An interviewer reading from an AI-generated guide, scoring against a pre-baked rubric — isn't that exactly what we were suspicious of in the Hustler? We built this process to catch candidates who ship AI-generated code they don't fully understand. And here we are, evaluating them through a conversation driven by an AI-generated guide. When someone uses an AI-generated tool, where does following the tool end and judgment begin? That symmetry is uncomfortable — and it's the right kind of uncomfortable.
+An interviewer reading from an AI-generated guide, scoring against a pre-baked rubric — isn't that exactly what we were suspicious of in the Hustler? We built this process to catch candidates who ship AI-generated code they don't fully understand. And here we are, evaluating them through a conversation driven by an AI-generated guide. When someone uses an AI-generated tool, where does following the tool end and judgment begin? That symmetry is an uncomfortable question. Leave it there.
 
 Of course the interviewers are experienced engineers. The guide is a starting point, not a destination. And we saw it used that way — interviewers who used the guide as a springboard, then steered the conversation off-script into terrain it didn't cover, reaching a deeper read on the candidate. Same tool, different depth of use. Whether you're the candidate or the interviewer, it comes out the same: the more powerful the tool, the more the user's judgment decides the outcome.
 
@@ -161,15 +161,15 @@ And here's something I didn't expect: the open-source principle from Part 1 came
 
 # We Evaluated the Conversation and Missed the Design
 
-Looking back, there's an irony in how this went.
+Here's the irony.
 
-Building the pipeline, we didn't fix things by editing the code — we edited the *instructions*. Harness engineering, as we called it in Part 2. We were already doing it. Then we turned around to evaluate candidates and leaned on prompts instead of design.
+Building the pipeline, we didn't fix things by editing the code — we edited the *instructions*. Harness engineering, as we called it in Part 2. We were already doing it. Then we turned around to evaluate candidates and relied on prompts instead of design docs.
 
 The interview results exposed the gap. As noted earlier, functional scores were useful for screening but didn't predict much beyond that — what correlated with interview-room depth was code quality and design thinking.
 
 Code is a shadow of intent. *Why* are you building this? *Why* did you pick this architecture? *Which* trade-offs did you weigh? That context is hard to recover from the code alone. Design docs are where it lives.
 
-This is what people are now calling Context Engineering: the quality of the context you hand to the AI determines the quality of what comes out. Context that's explicitly written down produces more consistent results than context that evaporates inside a chat window. We learned this ourselves while building the pipeline.
+Context Engineering, as it's being called: the quality of context you hand the AI determines the quality of what comes out. Context that's explicitly written down produces more consistent results than context that evaporates inside a chat window. We learned this ourselves while building the pipeline.
 
 We asked for design docs. We just didn't put them at the center of evaluation. The machine could read *how* the code worked, but *why* it was built that way stayed in human territory. That's where the machine's limit showed. The problem of separating human intent from machine output isn't solved — but design docs are a thread worth pulling.
 
@@ -179,7 +179,7 @@ What we naturally did when building the pipeline, we could have applied to the e
 
 # Beyond Hiring
 
-That's what we learned from this round. But the story doesn't end at hiring. Everyone working with AI is standing in front of the same question.
+That's what we learned from this round. But the story doesn't end at hiring. Anyone working with AI is facing the same question.
 
 ## Twenty Years
 
@@ -187,7 +187,7 @@ I've been driving with GPS navigation for almost twenty years.
 
 The early years were uneasy. Is the machine sending me the right way? Am I missing a faster route? The discomfort wasn't about the directions — it was about not being the one deciding.
 
-Twenty years in, here's what's clear: route planning wasn't a problem humans needed to focus on. It just wasn't worth the attention. Nobody today seriously argues we should go back to planning our own routes. Drivers themselves will fade too, eventually — except for the ones driving purely for fun.
+Twenty years in, here's what's clear: route planning wasn't a problem humans needed to focus on. It just wasn't worth the attention. Nobody argues we should go back to planning our own routes. Drivers themselves will fade too, eventually — except for the ones driving purely for fun.
 
 But the people who used to plan the route became the people who decide *where to go*. And then the people who think about *what to do* once they arrive. Every time a role disappears, a vacancy opens, and something else moves in. (Optimistic take, I know.)
 
@@ -215,11 +215,11 @@ What we saw this round was already pointing that way. AI wrote the interview gui
 
 The question the series started with: *how do you evaluate engineers in the AI era?*
 
-We tried to answer by building a machine. It worked as a filter. But separating human thinking from machine output was, in the end, not something the machine could do on its own. We also learned that we had been grading the conversation while overlooking the design. Code is a shadow of intent — and we were scoring the shadow.
+We tried to answer by building a machine. It worked as a filter. But separating human thinking from machine output wasn't something the machine could do on its own. We also learned that we had been grading the conversation while overlooking the design. Code is a shadow of intent — and we were scoring the shadow.
 
 Same tools, same time budget, same problem. And the spectrum of results was wide. Candidates the machine had grouped under one label split hard in the interview room. Interviewers holding the same guide ran wildly different depths of conversation. Where humans stepped in, things the machine hadn't seen came into view.
 
-Right now, those differences matter. But, like navigation, how long they keep mattering — I don't know.
+Those differences matter now. How long that holds — I don't know.
 
 The question itself is shifting. From *"can the machine do this?"* to *"is this still a problem humans should be focused on?"*
 
@@ -229,7 +229,7 @@ A vacancy is opening again. We don't yet know what'll move into it. But this hir
 
 ![The edge of the vacancy](/images/ai-native-hiring-part3-the-human/03-puzzle.png)
 
-This has been a long series. Thank you for reading to the end. I hope it's been useful — not just for hiring, but for recognizing there's a vacancy there at all, and for making its outline a little sharper.
+Long series. Thanks for making it to the end. If it helped you see the vacancy — not just in hiring, but wherever you're working with AI — and sharpen its outline a little, that's enough.
 
 ---
 
