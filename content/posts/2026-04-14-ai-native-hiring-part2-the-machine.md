@@ -34,7 +34,7 @@ The problem was a university course registration system. On the surface, a CRUD 
 
 ## Going Multi-Agent
 
-### Not a Coding Assistant — a Process Executor
+### Not a Coding Assistant. A Process Executor.
 
 Here's everything one evaluation needs to do:
 
@@ -48,13 +48,13 @@ Here's everything one evaluation needs to do:
 
 Repeat that 400 times.
 
-At first glance, only step 4 needs AI. That's backwards. Step 4 *obviously* needs AI — the real requirement is that the other six run autonomously under AI control.
+At first glance, only step 4 needs AI. That's backwards. Step 4 *obviously* needs AI. The real requirement is that the other six run autonomously under AI control.
 
 The first instinct was "let's just build it." Write the evaluation pipeline from scratch in Python or TypeScript. But the team was small, and the hiring timeline wasn't going to wait. Git clone, security scanning, Docker builds, API testing, score calculation, external system integration — writing and verifying all of that from the ground up is a project unto itself.
 
 A terminal-based AI agent is already a general-purpose executor. Sure, it reads and judges code — but it also runs shell commands, manipulates the filesystem, and controls Docker. Coding assistants like Cursor or GitHub Copilot can read code but can't autonomously build Docker images, manage ports, run shell scripts, or call external APIs. We didn't need a coding assistant. We needed a general-purpose agent.
 
-Instead of writing code, we'd tell an agent that can already do all of this *what to do*. The agent provides the capability; we design the direction it points. What we actually had to build wasn't the agent — it was the harness that drives it. Instructions the agent follows, rubrics it scores against, output schemas it fills in. Those were the components.
+Instead of writing code, we'd tell an agent that can already do all of this *what to do*. The agent provides the capability; we design the direction it points. What we had to build wasn't the agent — it was the harness. Instructions for the agent to follow, rubrics to score against, output schemas to fill. That's the whole thing.
 
 ---
 
@@ -64,7 +64,7 @@ Instead of writing code, we'd tell an agent that can already do all of this *wha
 
 Does a written playbook fix it? Halfway. The biggest shift from ad-hoc LLM usage is **reproducibility**. Same instruction file, same criteria across all 400. Outputs are constrained by JSON Schema, persisted to files and the database.
 
-But a more serious problem remains: **the multi-agent architecture**. What happens when one agent scores all 400 submissions in sequence? Context contamination. The 50th scoring pass still carries the residue of candidate 49. Humans make that mistake too. So do AIs. The fix is to spawn an independent agent per candidate, each working in a clean context.
+There's a harder problem: **the multi-agent architecture**. What happens when one agent scores all 400 submissions in sequence? Context contamination. The 50th scoring pass still carries the residue of candidate 49. Humans make that mistake too. So do AIs. The fix is to spawn an independent agent per candidate, each working in a clean context.
 
 An orchestrator agent iterates through the candidate list, spawning a fresh sub-agent for each one. Think of an exam room with dividers — each agent grading in its own booth. The sub-agent runs the evaluation in its own clean context, returns a result, and vanishes. Context isolation and evaluation isolation at the same time.
 
@@ -74,7 +74,7 @@ An orchestrator agent iterates through the candidate list, spawning a fresh sub-
 
 One candidate's evaluation moves through seven steps. Before the pipeline even begins, there's a submission phase: the candidate creates a private GitHub repo, invites the Musinsa evaluation account as a collaborator, the invitation is auto-accepted, the repo state is checked, and the URL lands in the database. That's the input.
 
-The steps come in two flavors. **Stages** handle setup, aggregation, and output. **Gates** are the filter points — the places where candidates actually get screened out. Since the whole pipeline exists to screen, we put "Gate" in the name of the four steps where screening actually happens.
+The steps come in two flavors. **Stages** handle setup, aggregation, and output. **Gates** are the filter points — where candidates actually get cut. Since the whole pipeline exists to screen, we put "Gate" in the name of the four steps where screening actually happens.
 
 ```mermaid
 sequenceDiagram
@@ -108,7 +108,7 @@ sequenceDiagram
 
 **Report Stage** updates dashboards, sends Slack notifications, and cleans up Docker resources.
 
-The key is that each step does two things at once: it writes a local result JSON file (the basis for re-runs), and it updates external state (the basis for dashboards and statistics). Thanks to this dual record, we could change the scoring model without losing the per-stage raw results — just regenerate the final report. That design is what made 26 full resets survivable.
+The key is that each step does two things at once: it writes a local result JSON file (the basis for re-runs), and it updates external state (the basis for dashboards and statistics). Because of that dual record, changing the scoring model didn't wipe the per-stage raw results — just regenerate the final report. That's what made 26 full resets survivable.
 
 ---
 
@@ -130,13 +130,13 @@ Markdown's flexibility has a cost: AI output that doesn't follow the expected sh
 
 ## Measuring Depth of Thought — Quality Gate
 
-A three-hour assignment. Core requirements: CRUD for course registration plus concurrency control. Then you open the submissions and find candidates who built multi-layer caching (L1 local + L2 Redis), wired up JWT auth and RBAC, added distributed tracing via OpenTelemetry, even went into DDD tactical patterns. Not one or two — a steady stream. That's the raw implementation power of AI coding agents.
+A three-hour assignment. Core requirements: CRUD for course registration plus concurrency control. Then you open the submissions and find candidates who built multi-layer caching (L1 local + L2 Redis), wired up JWT auth and RBAC, added distributed tracing via OpenTelemetry, even went into DDD tactical patterns. Not one or two. Dozens. That's what AI coding agents can do in three hours.
 
 Which makes evaluation harder. "Did they implement course registration?" Most pass. The differentiation lives beyond that. And as the volume of AI-generated code grows, telling "this person understood what they built" apart from "this person submitted what the AI made" gets harder, not easier.
 
 Isn't working output enough? If the AI agent builds it well, and it compiles and passes tests, isn't that the whole story?
 
-If you're only looking at the code, yes. But we're not hiring code, we're hiring people. Whether the thinking behind working code is deep or shallow, whether they wrote with understanding or just let the AI handle it — you can't tell from the output alone. You have to look past it. That's what Quality Gate does.
+If you're only looking at the code, yes. But we're not hiring code, we're hiring people. Was the thinking behind the code deep or shallow? Did they direct the AI or just accept what it produced? You can't tell from the output alone. You have to look past it. That's what Quality Gate does.
 
 The AI reads the candidate's code, documentation, and prompts, then scores quality across eight dimensions. Since the assignment presumes AI-agent-assisted implementation, code quality *and* how the candidate wielded the AI are both part of the evaluation.
 
@@ -159,9 +159,9 @@ That's the initial weighting. How it shifted in practice is Chapter 2.
 
 When the AI scores, it must cite code evidence (file:line). "Error handling is solid" is not a score. "`src/handler/GlobalExceptionHandler.java:15` — `@ControllerAdvice`-based global exception handler" — that's a score.
 
-The principle was there from day one. But there's always a gap between principle and execution. Before the real evaluation, internal engineers volunteered to solve the same assignment — thank you again for showing up on short notice — and we used their submissions to validate the pipeline. Rubrics that behaved fine in internal testing started misbehaving when the AI met 400 candidates' worth of variety. "Looks good" assertions with no evidence started slipping through. Without evidence, you can't verify. Without verification, you can't trust.
+The principle was there from day one. Execution is another story. Before the real evaluation, internal engineers volunteered to solve the same assignment — thank you again for showing up on short notice — and we used their submissions to validate the pipeline. Rubrics that behaved fine in internal testing started misbehaving when the AI met 400 candidates' worth of variety. "Looks good" assertions with no evidence started slipping through. Without evidence, you can't verify. Without verification, you can't trust.
 
-We hardened the rubric. Hundreds of results already existed, but we refined the scoring items and — for trust's sake — reset everything and ran it again from scratch.
+We hardened the rubric. Hundreds of results already existed, but we refined the scoring items and — because we couldn't trust results we hadn't re-run — reset everything from scratch.
 
 ---
 
@@ -223,7 +223,7 @@ We started simple. **The Pass/Fail era.** TC runs, passes or fails. The limit sh
 
 So we moved to **letter grades**. S/A/B/C/D/F by score range. Better, but a new problem: refining any scoring item shook up the grades. Summing functional score and code-quality score flat meant "weak functionality but exceptional design" and "perfect functionality but shoddy code" landed in the same bucket.
 
-Eventually we arrived at the **3-Tier model**. This is where the critical split happened: evaluate functional behavior and depth of thought *independently*.
+That's how we ended up at the **3-Tier model** — evaluate functional behavior and depth of thought *independently*.
 
 Base comes from Functional Gate — the score from running TCs in Docker. *Does the code work?* Depth comes from Quality Gate — the AI's score across 8 dimensions after reading the code and docs. *Does the candidate understand the code?* These two are scored independently.
 
@@ -231,7 +231,7 @@ Why insist on this separation? Because we had candidates whose build failed (Bas
 
 ### Seven Ranks
 
-Add Base and Depth and you get a total. Sort by total and you have a ranking. Simple. But two candidates with the same total — one high on Base and low on Depth, one the reverse — are fundamentally different hires. The *shape* of the score was the hiring signal, not the magnitude. Different shapes need different judgment.
+Add Base and Depth and you get a total. Sort by total and you have a ranking. Simple. But two candidates with the same total — one high on Base and low on Depth, one the reverse — are completely different hires. The *shape* of the score was the hiring signal, not the magnitude. Different shapes need different judgment.
 
 ![Seven-rank system](/images/ai-native-hiring-part2-the-machine/04-rank-system.png)
 
@@ -239,7 +239,7 @@ Add Base and Depth and you get a total. Sort by total and you have a ranking. Si
 
 **Craftsman** — functional score as high as Ace, code quality somewhere in the middle or above.
 
-**Hustler** is the most interesting rank. Functionality works perfectly. All TCs pass. But Depth is low. This is where the call gets hard. It could be the result of genuinely deep thinking that nailed the requirements. It could also be AI-generated code that happened to run cleanly. The machine can detect the pattern, but not which side it came from. Interview outcomes varied most dramatically for this rank.
+**Hustler** is the most interesting rank. Functionality works perfectly. All TCs pass. But Depth is low. The call gets hard here. Maybe they thought deeply and nailed the requirements. Maybe the AI just got lucky and the code ran clean. The machine can detect the pattern, but not which side it came from. Interview outcomes varied most dramatically for this rank.
 
 **Thinker** is the mirror image. The build failed, but code quality clears the bar. Someone with thin DevOps chops but strong thinking. Is it right to zero someone out when the only thing that failed was the build? The Thinker rank was born from that question.
 
@@ -267,7 +267,7 @@ More candidates than expected shipped fully working code. "It runs" by itself di
 
 The input side was even worse. Prompts and Agent Instructions were supposed to look at the *input* — not just the output code but the conversation with the AI. But prompt submission was voluntary, not system-enforced. Shapes varied wildly, and a lot of them were already AI-touched-up summaries. The distribution was closer to "submitted or didn't" than a continuous spectrum. No middle ground means no signal.
 
-Neither the output (base features) nor the input (the AI conversation) was generating differentiation. What was left was the spectrum of the implementation itself.
+Output didn't separate anyone. Input didn't either. What was left was the range of the implementation itself.
 
 Look at the submissions and the range of work *past* the base requirements varied enormously. Some candidates added caching. Some added caching + auth. Some added caching + auth + monitoring + distributed tracing + DDD.
 
@@ -297,7 +297,7 @@ flowchart LR
 
 **Step 3: Rubric Improvement.** A human reviews the flags. But the fix isn't correcting individual scores — it's fixing the rubric. Add a calibration hint like "for Additional Implementation, score integration quality, not mere presence." On the next run, the same bias shrinks.
 
-The human's role isn't validating individual scores. That becomes a bottleneck. The human is the calibration signal — spotting structural patterns the system can't see and feeding them back into the rubric. Fixing the scoring *criteria* for 400, not the score for one.
+The human's role isn't validating individual scores. That becomes a bottleneck. The human is the calibration signal: spotting patterns the system can't see and feeding them back into the rubric. Fixing the scoring *criteria* for 400, not the score for one.
 
 Of course there are individual corrections for exceptional cases (-10 to +10 per item), with reasons logged as structured JSON. But that's a byproduct of the loop, not its purpose.
 
@@ -307,7 +307,7 @@ Of course there are individual corrections for exceptional cases (-10 to +10 per
 
 ## Scale and Infrastructure
 
-"AI grading system." That's what it looks like from the outside. Only half true. What it actually is: a system that automates the entire hiring process — AI grading is just one step.
+"AI grading system." That's what it looks like from the outside. Half right. Under the hood: a system that automates the entire hiring process — AI grading is just one step.
 
 Build the candidate roster → GitHub invitation → collect submissions → track evaluation state → sync scores → build the pass list → invite interviewers. A workflow automation tool (n8n) runs through the whole process.
 
@@ -332,7 +332,7 @@ The AI evaluation this post is about is one step in the larger process. Without 
 
 This infrastructure didn't exist on day one. In early internal testing, we had dozens of candidates and ran them sequentially on one machine. Plenty. In front of 400+, not even close.
 
-Two machines can't evaluate the same candidate. Roster changes and re-invitations happen constantly. Overall progress has to be visible in real time. The evaluation pipeline alone wasn't enough — it needed operational infrastructure around it. Only after n8n workflows, PostgreSQL-based state management, and a Grafana dashboard for tracking were in place could we actually start the main run.
+Two machines can't evaluate the same candidate. The roster changes constantly. You need live progress visibility. The evaluation pipeline alone wasn't enough — it needed operational infrastructure around it. Only after n8n workflows, PostgreSQL state management, and a Grafana dashboard were running could we actually start the main run.
 
 ![Grafana dashboard](/images/ai-native-hiring-part2-the-machine/06-grafana-dashboard.png)
 
@@ -383,9 +383,9 @@ Five machines ran evaluations in parallel. We rotated through 10 agent accounts,
 
 ## From Machine to Human
 
-The machine can now measure Base and Depth, and the calibration loop keeps refining the rubric. But in the end, we're hiring people, not code. The score tells you who to interview. The question "do I want to build with this person?" belongs to a human.
+The machine can now measure Base and Depth, and the calibration loop keeps refining the rubric. But we're still hiring people, not code. The score tells you who to interview. The question "do I want to build with this person?" belongs to a human.
 
-When evaluation finishes, another AI run analyzes each passing candidate's actual code and auto-generates code-evidence-based interview questions. Not generic technical questions. Questions that start from *this person's code*. Why did they split the lock into two? What happens if you deploy this service to a distributed environment? Questions that point to specific lines and kick off a conversation there. For Hustlers, questions that verify understanding. For Thinkers, questions that verify execution. The interview shape changes with the rank.
+When evaluation finishes, another AI run analyzes each passing candidate's actual code and auto-generates code-evidence-based interview questions. Not generic technical questions. Questions that start from *this person's code*. Why did they split the lock into two? What happens if you deploy this service to a distributed environment? Questions that point to specific lines and open from there. For Hustlers, does the candidate actually understand what ran? For Thinkers, can they build the thing they designed? The interview changes shape with the rank.
 
 That's the machine's final output. What happened when that guide landed in an interviewer's hands is Part 3.
 
@@ -395,13 +395,13 @@ That's the machine's final output. What happened when that guide landed in an in
 
 There were far more commits working the system than building it. Running took four times the effort of building. First get it running, run internal tests to find problems, build up state management, do a full overhaul, go into production mode.
 
-In hindsight, this whole thing was designing and calibrating a harness. The agent's capabilities were already there. What we did was define the direction those capabilities pointed, watch the results, correct the direction, and run again. Tighten the harness, run it, tighten it again.
+Looking back, the whole job was designing and calibrating a harness. The agent's capabilities were already there. We defined the direction, watched the results, corrected, ran again. Tighten, run, tighten.
 
 The funny part: the process itself mirrors the virtues the system evaluates. Make it Work → Basic Features → Deep Thought. Get it running, get the basics right, then add depth. Turns out the system we built and the code it evaluated were walking the same path.
 
 In Part 1, we said we weren't just looking for people who arrived at the right answer — we were looking for people who understood the question.
 
-Building and running this machine, we had the same experience. There are things the score doesn't say. Signals the AI can't read. Depth that doesn't convert into points. However tightly you tune the harness, there are moments that demand human judgment. When we actually met candidates sorted by this rank system in interviews, patterns showed up that we hadn't anticipated.
+Building and running this machine, we had the same experience. The score doesn't say everything. The AI can't read every signal. Some depth doesn't convert to points. However tightly you tune the harness, there are moments that demand human judgment. When we actually met candidates sorted by this rank system in interviews, patterns showed up that we hadn't anticipated.
 
 We aren't hiring AIs directly, after all. Not yet.
 
