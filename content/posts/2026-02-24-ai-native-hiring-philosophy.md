@@ -24,7 +24,7 @@ In January 2026, we ran an AI-native engineering hiring round at Musinsa — hun
 
 Every technology era produces its natives.
 
-The internet era gave us "digital natives" — a generation that never knew life without Google. The smartphone era gave us "mobile natives" — people whose first instinct is to tap, not click. Now the AI era is producing its own generation: **AI natives**.
+The internet era gave us "digital natives" — a generation that never knew life without Google. The smartphone era gave us mobile natives: people whose first instinct is to tap, not click. Now the AI era is producing its own: **AI natives**.
 
 These aren't people who *learned* to use AI. They grew up with it. ChatGPT was there when they started college. Copilot was in their first IDE. Claude helped them debug their first production bug. AI isn't a tool they adopted — it's the air they breathe when they code.
 
@@ -36,7 +36,7 @@ That question led to everything in this series.
 
 ## The Fear and the Freeze
 
-The AI wave hasn't just changed how engineers work. It's upended how companies think about junior hiring.
+The AI wave hasn't just changed how engineers work — it's upended how companies think about junior hiring.
 
 The questions go beyond evaluation methods. How many engineers does an AI-augmented team actually need? Should we bring in fresh juniors who'll need years of mentoring, when AI might reshape the job before they're ramped up? Or do we double down on experienced seniors and hope they adapt?
 
@@ -52,15 +52,15 @@ The freeze is the most visible response — and the most damaging. It's not real
 
 At Musinsa, we chose differently.
 
-We decided not to sit out this chaotic era. Instead, we asked ourselves: what if we *defined* what "AI native engineer" means? What if we built a theory, a test, and an evaluation pipeline around it — not as a one-off experiment, but as a deliberate bet on the future?
+We decided not to sit out this chaotic era. Instead we asked: what if we *defined* what "AI-native engineer" means — built the theory, the test, and the evaluation pipeline, not as a one-off experiment but as a deliberate bet?
 
-This isn't recklessness. It's a calculated position: the companies that figure out AI-native hiring first will attract the best of this generation. Everyone else will be playing catch-up.
+We had a reason: the companies that figure out AI-native hiring first will attract the best of this generation. Everyone else plays catch-up.
 
 As Andrew Ng put it: *"We don't learn from the excitement of the company logo when you walk through the door — you learn from the people you deal with day-to-day."* That's what we're optimizing for. Not brand prestige. Not headcount. The right people, working alongside each other, growing together — in a moment when what "the right people" means is being redefined.
 
 We moved first. We didn't wait for the industry to converge on a standard. We built our own.
 
-The first thing we threw out was the traditional coding test. Designing its replacement forced us to confront four questions: Why don't existing tests work anymore? How do we level the playing field when AI tools are the key variable? How vague should the problem be? And how do we keep submissions testable without giving away the answer?
+The first thing we threw out was the traditional coding test. Replacing it forced four questions: Why don't existing tests work anymore? How do we level the playing field when AI is the key variable? How vague should the problem be? And how do we keep submissions testable without giving away the answer?
 
 ## LeetCode Is Dead
 
@@ -78,15 +78,15 @@ If implementation is cheap, what's expensive?
 
 **Knowing *what* to implement.**
 
-The ability to look at an ambiguous situation, derive the actual requirements, make reasonable decisions under uncertainty, and direct AI to build the right thing — *that* is the skill that matters now. And traditional coding tests don't measure any of it.
+Looking at an ambiguous situation, deriving the real requirements, making judgment calls under uncertainty, and pointing AI in the right direction — *that's* the skill that matters now. And traditional coding tests don't measure any of it.
 
-The constrained-environment response — forcing candidates into a web sandbox with no AI tools — is the wrong direction entirely. You're not testing engineering skill. You're testing who can code like it's 2020. The skill has shifted, and the tests need to shift with it.
+Locking candidates in a web sandbox with no AI tools is the wrong direction entirely. You're not testing engineering skill. You're testing who can code like it's 2020. The skill has shifted, and the tests need to shift with it.
 
 ## The Fairness Problem
 
 We initially considered letting candidates use their own local environments. The hypothesis was compelling: "환경 구축도 실력이다" — setting up your own development environment is itself a skill. Let people use whatever tools they're comfortable with.
 
-But once "AI tools" became the key variable, the freedom-vs-fairness equation broke down.
+But once AI tools became the key variable, freedom and fairness stopped pointing the same direction.
 
 In a 2-3 hour test, the difference between someone with a well-configured AI agent (ChatGPT Pro, Claude Max, optimized IDE integration, custom prompts) and someone without is enormous. It's not a difference in *skill* — it's a difference in *capital*. We'd be testing who has access to better tools, not who thinks more deeply about problems.
 
@@ -123,7 +123,7 @@ The hypothesis: if you write the problem the way a real stakeholder would — wi
 
 The ambiguity IS the test.
 
-This is what separates "AI native" from "AI dependent": can you figure out *what to do* when the spec doesn't tell you?
+That's the line between AI native and AI dependent: can you figure out *what to do* when the spec doesn't tell you?
 
 ## The Time/Scope Paradox
 
@@ -134,7 +134,7 @@ There's a paradox in designing tests for the AI era, and it took us a while to r
 3. **But full services are hard to test.** You can't grade hundreds of submissions by hand. You need automated testing. Which means you need a way to run each submission...
 4. **So ask candidates to dockerize?** But requiring Docker is a huge implementation hint. Same for specifying API endpoints, database schemas, or any test infrastructure. Every hint you give is a hint the AI can use to skip the thinking.
 
-Every step toward testability pushes you toward specificity. And every step toward specificity makes the AI's job easier and the candidate's thinking shallower.
+Every step toward testability pushes you toward specificity — and every step toward specificity makes the AI's job easier and the candidate's thinking shallower.
 
 {{< mermaid title="The Testability–Vagueness Paradox" >}}
 graph TD
@@ -186,7 +186,7 @@ Some might push back here: "But you *told* them what to build — a course regis
 
 Is it? What *is* a course registration system? Can you fully define one from a single sentence? Think about what's hiding behind those words: concurrency under extreme contention, data integrity across multiple business rules, performance under load, failure modes, edge cases in scheduling, fairness in seat allocation. A "course registration system" is a universe of unstated complexity compressed into four words.
 
-But here's the thing — our candidates have *lived* this problem. They've fought through broken registration systems at their own universities, cursed at ticket booking sites that crashed under load. They know, at least from the customer's perspective, what happens when these systems fail under competition. That shared experience is the seed. The problem definition starts from that sentence, but it's a starting point — not a specification.
+Our candidates have *lived* this problem. They've fought through broken registration systems at their own universities, cursed at ticket booking sites that died under load. They know, from the customer's side, exactly what happens when these systems buckle under competition. That lived experience is the seed. The problem definition starts from that sentence, but it's a starting point — not a specification.
 
 The real question is: from that one sentence, how far can you go? How do you expand a lived frustration into a structured system design? How do you define what "the right system" even means when the people asking for it don't fully know themselves? There's a reason scientists and mathematicians start from *definitions* — because the act of defining is where the real thinking happens.
 
@@ -228,7 +228,7 @@ No level is "wrong." A candidate who chooses `synchronized` and clearly explains
 
 The *reasoning* matters more than the *mechanism*. It's not which lock you picked — it's why you picked it.
 
-Could a sharper AI or a better prompt surface these insights for the candidate? Of course. And that's fine — duck typing applies here. If it walks like deep thinking and quacks like deep thinking, it's deep thinking. The skill isn't arriving at the insight unaided. It's arriving at the insight, period — whether through your own reasoning or through a well-directed conversation with your agent.
+Could a better prompt surface those insights for the candidate? Of course it could — duck typing applies here. If it walks like deep thinking and quacks like deep thinking, it's deep thinking. The skill isn't arriving at the insight unaided. It's arriving at the insight, period — whether through your own reasoning or through a well-directed conversation with your agent.
 
 ### The Dual-Lock Insight
 
@@ -300,13 +300,13 @@ Tiers 1 and 2 are duck typing. Does it behave like a working system? Then it's a
 
 **Tier 3 — Deep Thought.** This is where we go beyond duck typing. Duck typing tells you it works — it doesn't tell you whether the engineer will *keep* working at this level, or whether they'll grow. So we look inside: the candidate's prompt history, agent instructions, requirement derivation documents, data design choices, code quality, test coverage, git history, and additional implementations. An AI evaluates these dimensions — with every score backed by specific file paths and line numbers.
 
-Tier 3 is where we distinguish *delegation* from *engagement* — and this distinction matters more than it might seem.
+Tier 3 is where we distinguish *delegation* from *engagement* — and the gap is bigger than it looks.
 
-Anthropic's recent research on AI-assisted coding (*"How AI assistance impacts the formation of coding skills,"* Shen & Tamkin, 2026) draws a sharp line between these two modes. Engineers who delegate to AI are faster on any single task. But engineers who engage with understanding — who use AI as a collaborator to learn and verify, not just to produce — build skills that compound over time. Anthropic's own internal data shows their top performers achieve 1.2–2x throughput gains precisely because they treat AI as a thinking partner, not a replacement for thought.
+Anthropic's recent research on AI-assisted coding (*"How AI assistance impacts the formation of coding skills,"* Shen & Tamkin, 2026) puts this clearly. Engineers who delegate to AI are faster on any single task. But engineers who engage with understanding — who use AI as a collaborator to learn and verify, not just to produce — build skills that compound over time. Anthropic's own internal data shows their top performers achieve 1.2–2x throughput gains precisely because they treat AI as a thinking partner, not a replacement for thought.
 
 That's the bet behind our scoring: **depth of thinking outweighs functional completeness.** Tier 1 answers "can you build and run it?" Tier 2 answers "does it work as intended?" Tier 3 answers "do you understand what you shipped — and can you grow from here?"
 
-Here's a concrete example. Two candidates both implement dual-lock correctly. Duck typing says they're equivalent — the behavior is the same. But look beyond the interface: one explored the problem through progressively deeper prompts, documented why each serialization scope exists, and left evidence of genuine understanding in their git history. The other landed on it through a generic prompt and moved on. Same output. Very different internals.
+Consider two candidates who both implement dual-lock correctly. Duck typing says they're equivalent — the behavior is the same. But look beyond the interface: one explored the problem through progressively deeper prompts, documented why each serialization scope exists, and left evidence of genuine understanding in their git history. The other landed on it through a generic prompt and moved on. Same output. Very different internals.
 
 High functional scores with shallow depth signals AI over-dependency — ships fast but can't explain why. A failed build with exceptional design thinking tells a different story — someone worth interviewing despite the technical stumble. We're not just finding who got to the right answer. We're finding who understood the question.
 
